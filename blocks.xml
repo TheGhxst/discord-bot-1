@@ -1,0 +1,2914 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="=6`ushn0ewC41R$-^dvJ">prefix</variable>
+    <variable id="HD9[*68UA?W|{HRor:y1">welcome_title</variable>
+    <variable id="qy!I`aLPJl8,)}Ig=DV?">welcome_description</variable>
+    <variable id="w+?UI0G8Dd6ydUH~)`r|">purge-msg</variable>
+    <variable id="fN51?Dg3dX?9O==HrO6;">help_server</variable>
+    <variable id="YtR-yYrY9h`6-r1-*Q#W">embed_title</variable>
+    <variable id="L^XN4~}Vn-:PLh5G-v@/">embed_description</variable>
+    <variable id="M/RUBI)UV]^aUPh9!yGn">embed_image</variable>
+    <variable id="d_Hy:ef$`v^5eQF4e^ln">embed_color</variable>
+  </variables>
+  <block type="s4d_login" id="p)jzDPt.r`}eZyv)QgQ=" x="-1909" y="-4379">
+    <value name="TOKEN">
+      <shadow type="text" id=".F@)i[90hecPwEQd4nlX">
+        <field name="TEXT">TOKEN</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="s4d_on_connected" id="5R{QB]UyNsFKP_IZ+lIl" x="-1705" y="-4218">
+    <statement name="STATEMENTS">
+      <block type="variables_set" id="m=cER87YO4^LOUdrQ{vO">
+        <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+        <value name="VALUE">
+          <block type="text" id="dbEjwE?T8!yo^HOSM^!5">
+            <field name="TEXT">+</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="ckULuL!),Z`^G.O1xL!b" x="-2542" y="-4169">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="pg4J}1)z1WjK0D-ObUa!">
+        <value name="IF0">
+          <block type="logic_compare" id="VSX8Z{r4^+)u+URv!6[Z">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="s5`e}AhT#O60z9=8^PXZ"></block>
+            </value>
+            <value name="B">
+              <block type="text_join" id="43buJ+7!~IB3je@F{E-L">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="m[$]ydA.*ek1tjK1L|rW">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="LM_`-3ZX48oH31y;3O*@">
+                    <field name="TEXT">welcomedm</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="Gx.YIrgPOSU1mBv@WT^)">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="s4d_member_has_permission" id="4V!XB/wm,T[fIQji5#/C">
+                <field name="PERMISSION">MANAGE_GUILD</field>
+                <value name="MEMBER">
+                  <block type="s4d_message_author" id="#9V1VsgwD0FEb!9c;Fy5"></block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="s4d_send_wait_reply" id="7Pr=mJG?Y!A9E(_rgvk5">
+                <value name="CONTENT">
+                  <block type="gsa_simple_embed" id="6#~?2yi(y|I3:ktIP`_9">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="(Dz-,:g3#LK%-*9#[A]?">
+                        <field name="COLOUR">#3366ff</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="*}/BVE|n27li}h^*/6/k">
+                        <field name="TEXT">&gt; Quelle sera le titre du message de bienvenue ?</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="$3;j)~S60KolEZFhMR1}">
+                        <field name="TEXT">&gt; Choisissez le titre du message de Bienvenue </field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="CHANNEL">
+                  <block type="s4d_message_channel" id="A{n)45[8)~+/BfSLyE.A"></block>
+                </value>
+                <value name="MEMBER">
+                  <block type="s4d_message_member" id="pV@txY]JLfxMNl@d0dAD"></block>
+                </value>
+                <value name="TIME">
+                  <block type="math_number" id="DEU,bsQ4MC2u`4DFK9cS">
+                    <field name="NUM">5</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="variables_set" id="Oxf}[FIF1S4|}n-PGvL3">
+                    <field name="VAR" id="HD9[*68UA?W|{HRor:y1">welcome_title</field>
+                    <value name="VALUE">
+                      <block type="s4d_send_wait_reply_value" id="kG[Et[z:Zzx+2RF^qHRn"></block>
+                    </value>
+                    <next>
+                      <block type="s4d_send_wait_reply" id="2L!)5[jFZ`tNhlI-`j6E">
+                        <value name="CONTENT">
+                          <block type="gsa_simple_embed" id="$4[.:tpm+_XFeu$|0SR$">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                            <value name="COLOR">
+                              <block type="colour_picker" id="3~P{4Y5mx98?[v)SK[|D">
+                                <field name="COLOUR">#3366ff</field>
+                              </block>
+                            </value>
+                            <value name="TITLE">
+                              <block type="jg_text_remake_paragraph_quotes" id="-hNY.mN^L6Qo0x:O#j-h">
+                                <field name="TEXT">&gt; Quelle sera la description du message de bienvenue ?</field>
+                              </block>
+                            </value>
+                            <value name="DESCRIPTION">
+                              <block type="jg_text_remake_paragraph_quotes" id="].~dVW2}l=z}^wNH+u.w">
+                                <field name="TEXT">&gt; Choisir la description du message de bienvenue en dm </field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="CHANNEL">
+                          <block type="s4d_message_channel" id="ScultMg$J4MbMD.@aS`0"></block>
+                        </value>
+                        <value name="MEMBER">
+                          <block type="s4d_message_member" id="D17o;LG[o[12Cmu4/T6]"></block>
+                        </value>
+                        <value name="TIME">
+                          <block type="math_number" id="[@Xt-nLjiW.at=l!;=(g">
+                            <field name="NUM">5</field>
+                          </block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="variables_set" id="v6.KQ]Noz#Il`$bpc[_M">
+                            <field name="VAR" id="qy!I`aLPJl8,)}Ig=DV?">welcome_description</field>
+                            <value name="VALUE">
+                              <block type="s4d_send_wait_reply_value" id="Vhmcyxu8I2pw+uRAEHSk"></block>
+                            </value>
+                            <next>
+                              <block type="s4d_reply_then" id="l]Yj@J=llex*?)raD^iy">
+                                <value name="CONTENT">
+                                  <shadow type="text" id="OU2ZmdHi/=d/y()WVP=)">
+                                    <field name="TEXT">Hey!</field>
+                                  </shadow>
+                                  <block type="gsa_simple_embed" id="MOQ@?CaAiwr~1rXB}A9h">
+                                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                    <value name="COLOR">
+                                      <block type="colour_picker" id="b24/+5ddT_{F[w^zaxBG">
+                                        <field name="COLOUR">#3366ff</field>
+                                      </block>
+                                    </value>
+                                    <value name="TITLE">
+                                      <block type="jg_text_remake_paragraph_quotes" id="iVvMCPb$U36Y)r::|-Xr">
+                                        <field name="TEXT">&gt; chargement de l'apperçu...</field>
+                                      </block>
+                                    </value>
+                                    <value name="DESCRIPTION">
+                                      <block type="jg_text_remake_paragraph_quotes" id="RTWw,x8DxV?_Nhr/rDkn">
+                                        <field name="TEXT">&gt; Merci de patienter 3 secondes</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="THEN">
+                                  <block type="s4d_wait_seconds" id="QBk{@*R*zgfN6e:nNt5V">
+                                    <value name="TIME">
+                                      <block type="math_number" id="-ZcDP=|3[Qr/mM=-sJcz">
+                                        <field name="NUM">3</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="s4d_reply_delete" id="8c`e@fq~/g5rvCh2B$|f"></block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="s4d_reply_then" id="1-~_3wX.~Q9,M_hn{5q2">
+                                    <value name="CONTENT">
+                                      <shadow type="text" id="puOsawP!8F{LNr?3KNzm">
+                                        <field name="TEXT">&gt; **Chargement...**</field>
+                                      </shadow>
+                                    </value>
+                                    <statement name="THEN">
+                                      <block type="s4d_wait_seconds" id="44v6nrBP6GI9X~6z!CpO">
+                                        <value name="TIME">
+                                          <block type="math_number" id=".VN)O`[]p}IKFgXL1?!Z">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="s4d_reply_delete" id="aV*(+HHyC,hs073_l[_u"></block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="s4d_reply" id="/%$1`fyET_N08GsacTsi">
+                                        <value name="CONTENT">
+                                          <block type="gsa_simple_embed" id="Lk./fmFn~4PO5(X*{YBP">
+                                            <mutation xmlns="http://www.w3.org/1999/xhtml" message="true" color="true" title="true" description="true" image="true"></mutation>
+                                            <value name="MESSAGE">
+                                              <block type="text_join" id="eds0SG@hB2tnRuwEU/vP">
+                                                <mutation items="2"></mutation>
+                                                <value name="ADD0">
+                                                  <block type="jg_text_remake_paragraph_quotes" id="`EfVIj?qNW%/3V;geD9i">
+                                                    <field name="TEXT">&gt; </field>
+                                                  </block>
+                                                </value>
+                                                <value name="ADD1">
+                                                  <block type="jg_text_remake_paragraph_quotes" id="mak^A]46a_jPzjr,PX`K">
+                                                    <field name="TEXT">{ping membre}</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="COLOR">
+                                              <block type="colour_picker" id="7YmMR,)RhNKgS)$vyqd3">
+                                                <field name="COLOUR">#3366ff</field>
+                                              </block>
+                                            </value>
+                                            <value name="TITLE">
+                                              <block type="variables_get" id="6X:j{^CerO#99E3KHI%H">
+                                                <field name="VAR" id="HD9[*68UA?W|{HRor:y1">welcome_title</field>
+                                              </block>
+                                            </value>
+                                            <value name="DESCRIPTION">
+                                              <block type="variables_get" id="(]+)fnrn[TuD1gM;$?Pi">
+                                                <field name="VAR" id="qy!I`aLPJl8,)}Ig=DV?">welcome_description</field>
+                                              </block>
+                                            </value>
+                                            <value name="IMAGE">
+                                              <block type="jg_text_remake_paragraph_quotes" id="webqOewz%G:NZ|Z~!vNX">
+                                                <field name="TEXT">https://www.designyourway.net/blog/wp-content/uploads/2017/03/Anime-Wallpaper-Desktop-Background-29.jpg</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <statement name="CATCH">
+                          <block type="s4d_reply" id="i0E@PGmD=~lq.7p481pr">
+                            <value name="CONTENT">
+                              <block type="gsa_simple_embed" id=":52Uia))P.o_~sjao1ML">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                <value name="COLOR">
+                                  <block type="colour_picker" id="eK.|aKnFwRGub@Lia|/H">
+                                    <field name="COLOUR">#ff0000</field>
+                                  </block>
+                                </value>
+                                <value name="TITLE">
+                                  <block type="jg_text_remake_paragraph_quotes" id=")(tnJIbT0[,N.x)csc-S">
+                                    <field name="TEXT">Temp écoulé</field>
+                                  </block>
+                                </value>
+                                <value name="DESCRIPTION">
+                                  <block type="jg_text_remake_paragraph_quotes" id="F_^!GJeHcEDo1!t]VGZN">
+                                    <field name="TEXT">&gt; 5 minutes sont écoulés...</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="CATCH">
+                  <block type="s4d_reply" id="XB4#~WF`SP[D{fizG-$b">
+                    <value name="CONTENT">
+                      <block type="gsa_simple_embed" id="]NJ$`kS,Z]N1Rr9di10o">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                        <value name="COLOR">
+                          <block type="colour_picker" id="67D=js)LLR~M1)?f*x8+">
+                            <field name="COLOUR">#ff0000</field>
+                          </block>
+                        </value>
+                        <value name="TITLE">
+                          <block type="jg_text_remake_paragraph_quotes" id="AD~d`KNTrnYL-cR]%r1A">
+                            <field name="TEXT">Temp écoulé</field>
+                          </block>
+                        </value>
+                        <value name="DESCRIPTION">
+                          <block type="jg_text_remake_paragraph_quotes" id="b=]6,R,`R=XK`~[N6thn">
+                            <field name="TEXT">&gt; 5 minutes sont écoulés...</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="s4d_reply_then" id="VN_1z2%%J$o(1?3_98ON">
+                <value name="CONTENT">
+                  <shadow type="text" id="5:C|E2{f(BTni=q99r:}">
+                    <field name="TEXT">Hey!</field>
+                  </shadow>
+                  <block type="gsa_simple_embed" id=":7/TkFI}8:!TI2BQ?LY:">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="`/8J~VF%()RHS!}DnRdl">
+                        <field name="COLOUR">#ff0000</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="o22sjUhVWV/3@Kq*c;gL">
+                        <field name="TEXT">&gt; Permission manquante</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="_X8{g#Q/ju{LA?XccuEV">
+                        <field name="TEXT">&gt; Il vous manque la permission : manager server</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="s4d_wait_seconds" id="gPA7.#}tk[g]a,=uG69l">
+                    <value name="TIME">
+                      <block type="math_number" id=",:-xp)SK7;K:3D5`V*6*">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="s4d_reply_delete" id="06%IQLv2=K|#DvKGnjiv"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="`I_T!h7Aj)T1vgB^pJ|Y" x="-1313" y="-4199">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="h#jl#=8oh#Tx5@BS].S1">
+        <value name="IF0">
+          <block type="logic_compare" id="(3]DW|po]0l#12whdYR}">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="a$IfK5FD6oVWuk3E:H8a"></block>
+            </value>
+            <value name="B">
+              <block type="text_join" id="{wHZYxH`C11adODuvqaI">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="aJi8~?j#%K0QwVV2~]qP">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="o?66GuQpCl{,4mZ;hos|">
+                    <field name="TEXT">seewelcomedm</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="Y)#+5D4hM4EA%TnB23U%">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="s4d_member_has_permission" id="WW5]r0ZsvEA4hASnSlg@">
+                <field name="PERMISSION">MANAGE_GUILD</field>
+                <value name="MEMBER">
+                  <block type="s4d_message_author" id="ZjRjghArJ~DMcDcx;~wW"></block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="s4d_reply" id="33XhiirU9hq|sh((Pt.T">
+                <value name="CONTENT">
+                  <block type="gsa_simple_embed" id="T0)CL9L||`Fce?6YRo:u">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" message="true" color="true" title="true" description="true" image="true"></mutation>
+                    <value name="MESSAGE">
+                      <block type="jg_text_remake_paragraph_quotes" id="]oW|Ik{odIyYPb[~TM4)">
+                        <field name="TEXT">{ping membre}</field>
+                      </block>
+                    </value>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="2u_hegl6(K+2]^=]Oif5">
+                        <field name="COLOUR">#3366ff</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="variables_get" id="b8$a4z,5!_6VTp{Ex#Gu">
+                        <field name="VAR" id="HD9[*68UA?W|{HRor:y1">welcome_title</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="variables_get" id="C?PLW3]8FJ]43fBuB(`W">
+                        <field name="VAR" id="qy!I`aLPJl8,)}Ig=DV?">welcome_description</field>
+                      </block>
+                    </value>
+                    <value name="IMAGE">
+                      <block type="jg_text_remake_paragraph_quotes" id="LAx=bVdKpW2r/@sGX*^s">
+                        <field name="TEXT">https://www.designyourway.net/blog/wp-content/uploads/2017/03/Anime-Wallpaper-Desktop-Background-29.jpg</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="s4d_reply_then" id="ePxYk7h%Ei0B,NNm!a%4">
+                <value name="CONTENT">
+                  <shadow type="text" id="5:C|E2{f(BTni=q99r:}">
+                    <field name="TEXT">Hey!</field>
+                  </shadow>
+                  <block type="gsa_simple_embed" id="OHN{7#?{bDid8wiQ2V,?">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="[^ri5rQ`]S%o(X$YGS=4">
+                        <field name="COLOUR">#ff0000</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="es7ztac{p9x_]m)*54dz">
+                        <field name="TEXT">&gt; Permission manquante</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="A3B6OkyZXQ([iYH*_]/w">
+                        <field name="TEXT">&gt; **Il vous manque la permission : manager server**</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="s4d_wait_seconds" id="KnqEUwGCz|+D-NZ8jlv{">
+                    <value name="TIME">
+                      <block type="math_number" id="wH+@uuJY!Si@8}xUQP=J">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="s4d_reply_delete" id="23o18M1+t;Iji:+gFk~S"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="F1{LvG$[SumjOM0xt312" x="74" y="-4033">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="AUCFh[$jCIYb[`XUldRV">
+        <value name="IF0">
+          <block type="logic_compare" id="5XdQ4`fQ@sg~[X;_#uG(">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="EBrb%mRrRRg+ZYM7!;lP"></block>
+            </value>
+            <value name="B">
+              <block type="text_join" id="2Y:DLFD,x}!5uXOG}mXy">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="!9Az.8Zg3(dGrVIoD{T|">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="fcCJ^*haiA=Q(3R@:`$G">
+                    <field name="TEXT">clear</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="Z:hKL;ecxh%EAMXB$cZ!">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="s4d_member_has_permission" id="5OPe4FwXy}=SD=9`[idF">
+                <field name="PERMISSION">MANAGE_MESSAGES</field>
+                <value name="MEMBER">
+                  <block type="s4d_message_author" id="mVE~G3]MNKhL~vM6qVUq"></block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="s4d_send_wait_reply" id="gX8|~Zjzz.N;JxNcGT0e">
+                <value name="CONTENT">
+                  <block type="gsa_simple_embed" id="Q^/G0?@z+?T;*e$N`/32">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="k~}~cQq;,(xro$X9R8;L">
+                        <field name="COLOUR">#3366ff</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="5^3g=VC/2G@/GO2_ZjRF">
+                        <field name="TEXT">&gt; Combien de message voulez -vous supprimez ?</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="kR?.)}i`G(}_{jU8Qsm;">
+                        <field name="TEXT">&gt; Merci de donner un nombre entre 1 et 500 !</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="CHANNEL">
+                  <block type="s4d_message_channel" id="B*_}DM@HpxtZBll`s?hh"></block>
+                </value>
+                <value name="MEMBER">
+                  <block type="s4d_message_member" id="rHDo|C6Xxwe6NvTJ{~,m"></block>
+                </value>
+                <value name="TIME">
+                  <block type="math_number" id="ANcD!ZY^W_w0]WC{yc`|">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="variables_set" id="EY2KusZ{D_Vg7Xv]*nUP">
+                    <field name="VAR" id="w+?UI0G8Dd6ydUH~)`r|">purge-msg</field>
+                    <value name="VALUE">
+                      <block type="s4d_send_wait_reply_value" id="9e)7HQ{1fqHTTb+.waop"></block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="Y,cY=J7S1`Uvo3*fb/R.">
+                        <mutation elseif="1" else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_compare" id="[?KXt-2LS@H-(,eY4P?L">
+                            <field name="OP">LTE</field>
+                            <value name="A">
+                              <block type="variables_get" id="1E.ER:KxFV.%tB:MwCFO">
+                                <field name="VAR" id="w+?UI0G8Dd6ydUH~)`r|">purge-msg</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="|:w%BKdV6,KLR/bqqX8_">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="s4d_reply" id="1dJ,BaY.x]Itf4wuw1D1">
+                            <value name="CONTENT">
+                              <block type="gsa_simple_embed" id="9W.%wxJjv6%]yc9wfd;)">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                <value name="COLOR">
+                                  <block type="colour_picker" id="kfvXg5*Z|j-Y]+uRFW~D">
+                                    <field name="COLOUR">#ff0000</field>
+                                  </block>
+                                </value>
+                                <value name="TITLE">
+                                  <block type="jg_text_remake_paragraph_quotes" id="PwE;ldkT}SxEC[p0H@}A">
+                                    <field name="TEXT">&gt; le nombre doit être supérieur à 1 !</field>
+                                  </block>
+                                </value>
+                                <value name="DESCRIPTION">
+                                  <block type="jg_text_remake_paragraph_quotes" id="miPesjVRTHd9)5kz9WZ^">
+                                    <field name="TEXT">&gt; Le nombre dit être au-dessus de 1 ! </field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <value name="IF1">
+                          <block type="logic_compare" id="E]HYFvm;w23@f+EsNJWK">
+                            <field name="OP">GT</field>
+                            <value name="A">
+                              <block type="variables_get" id="EJAV6k5IkGm;xs44;D9Q">
+                                <field name="VAR" id="w+?UI0G8Dd6ydUH~)`r|">purge-msg</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id=",~rx^4|hxD-T_-re+lPu">
+                                <field name="NUM">500</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO1">
+                          <block type="s4d_reply" id="=z]I3g,6};Z|AuIq[ObN">
+                            <value name="CONTENT">
+                              <block type="gsa_simple_embed" id="Iv0ME}V(j%*FlRrr0B9q">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                <value name="COLOR">
+                                  <block type="colour_picker" id="Efh8MiYuz!AIr.cs3n}v">
+                                    <field name="COLOUR">#ff0000</field>
+                                  </block>
+                                </value>
+                                <value name="TITLE">
+                                  <block type="jg_text_remake_paragraph_quotes" id="$^a,}E[X{L-@p1JIDd1C">
+                                    <field name="TEXT">&gt; Ce nombre est trop grand !</field>
+                                  </block>
+                                </value>
+                                <value name="DESCRIPTION">
+                                  <block type="jg_text_remake_paragraph_quotes" id="Wbur8IwW[{Ji@t^tB5tv">
+                                    <field name="TEXT">&gt; Choisis un nombre au-dessus de 1 !</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="s4d_purge" id="ioY!#l.UHfK@RJ4BOCGR">
+                            <value name="CHANNEL">
+                              <block type="s4d_message_channel" id=",F9ASA}L.7%h;tA[z2CJ"></block>
+                            </value>
+                            <value name="AMOUNT">
+                              <shadow type="math_number" id="[e.709(@ieNV,^~3!kxY">
+                                <field name="NUM">2</field>
+                              </shadow>
+                              <block type="variables_get" id=")fo(7lA#(S2o`6mN;FbC">
+                                <field name="VAR" id="w+?UI0G8Dd6ydUH~)`r|">purge-msg</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="s4d_wait_seconds" id="y5g^Id2t7o=3a2%,.V54">
+                                <value name="TIME">
+                                  <block type="math_number" id="pGKVGhdAaLDpkmM:G_Jy">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="s4d_reply_then" id="Pl@5i3@zcT8_@8UPNM{g">
+                                    <value name="CONTENT">
+                                      <shadow type="text" id="/y*Ua#B^A7;{$CL6MKS^">
+                                        <field name="TEXT">Hey!</field>
+                                      </shadow>
+                                      <block type="gsa_simple_embed" id="QgGW}uOdstB54Np}P/Gg">
+                                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                        <value name="COLOR">
+                                          <block type="colour_picker" id="Mqv-UpYY1#;-uR,$Yo2h">
+                                            <field name="COLOUR">#ff0000</field>
+                                          </block>
+                                        </value>
+                                        <value name="TITLE">
+                                          <block type="jg_text_remake_paragraph_quotes" id="V-Zp!DXnda?Xpk3t1%NR">
+                                            <field name="TEXT">Suppression des messages terminé ! </field>
+                                          </block>
+                                        </value>
+                                        <value name="DESCRIPTION">
+                                          <block type="text_join" id="f6a#a7%tGrBYpLE7sYuD">
+                                            <mutation items="3"></mutation>
+                                            <value name="ADD0">
+                                              <block type="jg_text_remake_paragraph_quotes" id="y[A1X9AQ|rY4IX3F?OrF">
+                                                <field name="TEXT">**</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD1">
+                                              <block type="variables_get" id="ur9*mYOj+O%ME+9XAB(D">
+                                                <field name="VAR" id="w+?UI0G8Dd6ydUH~)`r|">purge-msg</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD2">
+                                              <block type="jg_text_remake_paragraph_quotes" id="kU1ZrL.zEA~ehL-c1TzL">
+                                                <field name="TEXT">messages** ont bien été supprimés !</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="THEN">
+                                      <block type="s4d_wait_seconds" id="%@gQT^q]FdIem*~X`ClH">
+                                        <value name="TIME">
+                                          <block type="math_number" id="mfal*P7m()ja`+s]O?K)">
+                                            <field name="NUM">2</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="s4d_reply_delete" id="@[_t3G}ecw*OV[1cOzVa"></block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="CATCH">
+                  <block type="s4d_reply" id="~^f+VCOmd:_xNhs5_d2p">
+                    <value name="CONTENT">
+                      <block type="gsa_simple_embed" id="3tO2(553RF-sZ_D)K),#">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                        <value name="COLOR">
+                          <block type="colour_picker" id="sQgWaqX~B,*E]zf~oA,T">
+                            <field name="COLOUR">#ff0000</field>
+                          </block>
+                        </value>
+                        <value name="TITLE">
+                          <block type="jg_text_remake_paragraph_quotes" id="/SY*us57FFAfR)}r!t25">
+                            <field name="TEXT">Temp écoulé</field>
+                          </block>
+                        </value>
+                        <value name="DESCRIPTION">
+                          <block type="jg_text_remake_paragraph_quotes" id="6|f@sH~5K.A3)bjM_x[,">
+                            <field name="TEXT">&gt; 1 minute est écoulé !</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="s4d_reply" id="2HZb0f]uCmz;nbm0r*F)">
+                <value name="CONTENT">
+                  <block type="gsa_simple_embed" id="O(bLECC3@D+;8wpOh[0=">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="uG/AKFlx9-xSc$/6=BzO">
+                        <field name="COLOUR">#ff0000</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="TRQc;5eQuNQ5Jzrghj!J">
+                        <field name="TEXT">Permission manquante !</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="(a{.FJG--nx!1kZo:8z)">
+                        <field name="TEXT">&gt; 1 minute est écoulé !</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_connected" id="Jxr*)G1Ps87PXrH:zq@H" x="-1358" y="-3093">
+    <statement name="STATEMENTS">
+      <block type="s4d_set_bot_game" id="L/srUL(axrL1UxC^|FLv">
+        <field name="OIFD">online</field>
+        <field name="TYPE">WATCHING</field>
+        <value name="GAME">
+          <block type="jg_text_remake_paragraph_quotes" id="2tMleDV8[]tL~uJQftVI">
+            <field name="TEXT">Le début d'Everest Anime [FR] !</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_member_join" id="~y|s8vWSuT}r)/rh#xbk" x="-999" y="-2612">
+    <statement name="STATEMENTS">
+      <block type="s4d_send_member" id="`-9J]^Xpe9`pwicV|aWv">
+        <value name="CONTENT">
+          <block type="gsa_simple_embed" id="8($cU*!b`u+c9Lomm+J,">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" message="true" color="true" title="true" description="true" image="true"></mutation>
+            <value name="MESSAGE">
+              <block type="text_join" id="}n}-6pxO0pGL-TDIz3NB">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="jg_text_remake_paragraph_quotes" id="lqWmuaX1{dWM;K].KwD*">
+                    <field name="TEXT">&gt; </field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="s4d_joining_member" id=":HSM~H2vhL.S2p;O/,~t"></block>
+                </value>
+              </block>
+            </value>
+            <value name="COLOR">
+              <block type="colour_picker" id="B#5=}$FU7$f06=e+yX(f">
+                <field name="COLOUR">#3366ff</field>
+              </block>
+            </value>
+            <value name="TITLE">
+              <block type="variables_get" id="e#d1xQ/4|U!@MvXikOR%">
+                <field name="VAR" id="HD9[*68UA?W|{HRor:y1">welcome_title</field>
+              </block>
+            </value>
+            <value name="DESCRIPTION">
+              <block type="variables_get" id="mVhf_P~UY6Wex|uEE-7R">
+                <field name="VAR" id="qy!I`aLPJl8,)}Ig=DV?">welcome_description</field>
+              </block>
+            </value>
+            <value name="IMAGE">
+              <block type="jg_text_remake_paragraph_quotes" id="Riyd89IgeN35|rYP!5*7">
+                <field name="TEXT">https://www.designyourway.net/blog/wp-content/uploads/2017/03/Anime-Wallpaper-Desktop-Background-29.jpg</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="MEMBER">
+          <block type="s4d_joining_member" id="l9UFE($0/_7M!|JFgbf#"></block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="(qC*oR3-awwfa2Y)uA0H" x="-4184" y="-2145">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="I-ll?hKo=gm*-/^v!;!B">
+        <value name="IF0">
+          <block type="logic_compare" id="S*`s,DAU|{VDaJq~n6}B">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="BzgCy9yp#~HqGq+Z(d2["></block>
+            </value>
+            <value name="B">
+              <block type="text_join" id="Q7|FI?`V|+~$%S=S!xZv">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="POZ[k9mSxj]E21Ws,M,t">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="=Y;`.zF1,p{yr2014WaF">
+                    <field name="TEXT">sethelpserver</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="rnRF$gXI[6~}I~//4+Hh">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="s4d_member_has_permission" id="wUOyH[~|MR^+:|,Myylw">
+                <field name="PERMISSION">MANAGE_GUILD</field>
+                <value name="MEMBER">
+                  <block type="s4d_message_author" id="OV-Fj!JFW^.%f6$PCWO0"></block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="s4d_send_wait_reply" id="Hahyn:G^RCo@fY)F0I[^">
+                <value name="CONTENT">
+                  <block type="gsa_simple_embed" id="frhbLRH~v=)$-L4MJos+">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id=".2gB!)y7*2UguywK]Jo#">
+                        <field name="COLOUR">#3366ff</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="L_g/yuwd|*l520EQ5n{/">
+                        <field name="TEXT">&gt; Que voulez-vous mettre en aide ?</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="bM1Hj0gWnwOOm#_=iOlB">
+                        <field name="TEXT">&gt; **Lorsque la commande help sera effectué ,juste après les aides à propos du bot et des informations complémentaire sur le bot **</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="CHANNEL">
+                  <block type="s4d_message_channel" id="ug@2YTuOAl*}*8FCaHse"></block>
+                </value>
+                <value name="MEMBER">
+                  <block type="s4d_message_member" id="fT--Hn}$qliBT7uLIoU["></block>
+                </value>
+                <value name="TIME">
+                  <block type="math_number" id="yF@-01E:YBsDptsybaF]">
+                    <field name="NUM">5</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="variables_set" id="yz@O^Op3;vWYa5`itKO;">
+                    <field name="VAR" id="fN51?Dg3dX?9O==HrO6;">help_server</field>
+                    <value name="VALUE">
+                      <block type="s4d_send_wait_reply_value" id="N*;NNeoqiEg?6/q^1|4O"></block>
+                    </value>
+                    <next>
+                      <block type="s4d_reply_then" id="6,q#C#%uH9#.w;8hS6Ks">
+                        <value name="CONTENT">
+                          <shadow type="text" id="Bc)Y4T`?S9Imx((r1RMl">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="gsa_simple_embed" id="fu.3z|VpHGCBWajgXF/x">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                            <value name="COLOR">
+                              <block type="colour_picker" id="w3@XOnsdsXBXjfJ@u?hg">
+                                <field name="COLOUR">#33cc00</field>
+                              </block>
+                            </value>
+                            <value name="TITLE">
+                              <block type="jg_text_remake_paragraph_quotes" id="$c0iB9/M%hS:HhaY[W.d">
+                                <field name="TEXT">&gt; Chargement de l'aperçu en cours... </field>
+                              </block>
+                            </value>
+                            <value name="DESCRIPTION">
+                              <block type="jg_text_remake_paragraph_quotes" id="xH/JN,NY].c98mo@z.BW">
+                                <field name="TEXT">&gt; Un aperçu de votre configuration sera bientôt affiché... </field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="s4d_wait_seconds" id="*=~d6|K2vcqaJW($e%/X">
+                            <value name="TIME">
+                              <block type="math_number" id="]*NV3bx1?6z!i_2`46(4">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="s4d_reply_delete" id="oC^8~mRv5PGWHnSsLVmp"></block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="s4d_reply_then" id=",@?3zh!`I_l={auVM8fx">
+                            <value name="CONTENT">
+                              <shadow type="text" id="LZXJn-a)Twcdzu6]G}aP">
+                                <field name="TEXT">&gt; **Chargement..**</field>
+                              </shadow>
+                            </value>
+                            <statement name="THEN">
+                              <block type="s4d_wait_seconds" id="g_C-8b_mv#+@?QfAUe@S">
+                                <value name="TIME">
+                                  <block type="math_number" id="ZvL++%$4`*Ps%ys/.L6t">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="s4d_reply_delete" id="vneBRz.GC=@07--I;PSV"></block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="s4d_reply" id="o$XLGZ=8V7ac}0{Rpb0$">
+                                <value name="CONTENT">
+                                  <block type="gsa_simple_embed" id="R$3{QTAf;ny(=LPyH6%@">
+                                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                    <value name="COLOR">
+                                      <block type="colour_picker" id="mJcT%08f+udK}QKNw3^l">
+                                        <field name="COLOUR">#3366ff</field>
+                                      </block>
+                                    </value>
+                                    <value name="TITLE">
+                                      <block type="jg_text_remake_paragraph_quotes" id="BCu4Up6J*?F4L?=Pb7Lm">
+                                        <field name="TEXT">&gt; Aide serveur et Bot </field>
+                                      </block>
+                                    </value>
+                                    <value name="DESCRIPTION">
+                                      <block type="text_join" id="~@ThpX78Hko3M#2:MM4X">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <block type="jg_text_remake_paragraph_quotes" id="3@Iwi--8*7htyTx|3p.#">
+                                            <field name="TEXT">&amp;#10;&gt; **Commandes :**&amp;#10;&amp;#10;&gt; **help : voir les aides à propose du bot et du serveur**&amp;#10;&amp;#10;&gt; **ping : voir le ping actuel du bot **&amp;#10;&amp;#10;&gt; **setprefix : définir le préfixe du bot Everest **&amp;#10;&amp;#10;&gt; **welcomedm : configurer le message de bienvenue en dm**&amp;#10;&amp;#10;&gt; **seewelcomedm : regarder l'embed de bienvenue en message privé actuel**&amp;#10;&amp;#10;&gt; **embed : faire un embed avec un titre ,une description et une image .**&amp;#10;&amp;#10;&gt; **rules : réécrire le règlement**&amp;#10;&amp;#10;&gt; **clear : supprimer des messages**&amp;#10;&amp;#10;&gt; **sethelpserver : configurer le système d'aide de serveur ( c'est à dire que les aides apparaîtront sur cette embed juste en dessous des commandes et des informations complémentaires )**&amp;#10;&amp;#10;&gt; **Information complémentaire **&amp;#10;&amp;#10;&gt; **Ce bot discord est développé par &lt;@816100601280331827&gt; ,owner de Everest Anime [FR] et de Everest Anime Chill [FR]!**&amp;#10;&amp;#10;</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="variables_get" id=".F0qiGJw-z4)maLLMr0}">
+                                            <field name="VAR" id="fN51?Dg3dX?9O==HrO6;">help_server</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="CATCH">
+                  <block type="s4d_reply" id="fO,4jf-(~@1XG[~Y]]I$">
+                    <value name="CONTENT">
+                      <block type="gsa_simple_embed" id="xfCAgC*FT7bhx?Wj/pv{">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                        <value name="COLOR">
+                          <block type="colour_picker" id="OjcTgp$DTaV,V.$358x_">
+                            <field name="COLOUR">#ff0000</field>
+                          </block>
+                        </value>
+                        <value name="TITLE">
+                          <block type="jg_text_remake_paragraph_quotes" id="Rt]r+YU%],WAEG.Y|-w4">
+                            <field name="TEXT">Temp écoulé</field>
+                          </block>
+                        </value>
+                        <value name="DESCRIPTION">
+                          <block type="jg_text_remake_paragraph_quotes" id="$8zux.lWE=hErDvjFH#1">
+                            <field name="TEXT">&gt; 5 minutes sont écoulés...</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="s4d_reply_then" id="^9P~:gED9nn58@$9EqPD">
+                <value name="CONTENT">
+                  <shadow type="text" id="y5,N`du`z;bR4CgwpK$b">
+                    <field name="TEXT">Hey!</field>
+                  </shadow>
+                  <block type="gsa_simple_embed" id="TroFGy}3jT(i%isC#`do">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="X1]Vc.sVVc]_Tp)vL:_l">
+                        <field name="COLOUR">#ff0000</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="l#pEQPuTW?9p6u*)H1_}">
+                        <field name="TEXT">&gt; Permission manquante</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="GFZZpqLFx;MGMB5ZYs*Y">
+                        <field name="TEXT">&gt; **Il vous manque la permission : manager server**</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="s4d_wait_seconds" id="xW^BE1H/XM|Fk*A?l%gv">
+                    <value name="TIME">
+                      <block type="math_number" id="nrN03B-(w7N`,bsIXlSM">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="s4d_reply_delete" id="-@Bgjx`X]9V~7qRui?tS"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="Qx+aIDM=_,mj^tl$vGmW" x="-4844" y="-2068">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="Cr$f.P2*Nq2Dl}?D!r`(">
+        <mutation elseif="17"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="oq-Tf{oSnv,],{N*FSF|">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="pyFMNvR6J#o6Ky/UA~]f"></block>
+            </value>
+            <value name="B">
+              <block type="text" id=";[??XKp36YJf2U}j2_}e">
+                <field name="TEXT">Hey</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="jg_messages_react_to_message_with_reaction" id=";qsDlsY+V%#_^Bf).pz;">
+            <value name="MESSAGE">
+              <block type="Message" id="^8ToN.$8Y=Pbf|*fAJQ:"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="RQP({gbf4E=W$J@~{;#q">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="D9uZn;JIi)S/$AcKyghv">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="C*},Q@fE2vUZUS(F#|P1"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="Yk!^,}AAJAL-@yP[yYjZ">
+                <field name="TEXT">Hi</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="jg_messages_react_to_message_with_reaction" id="F9ug~oU};B:;a.ZVE7(I">
+            <value name="MESSAGE">
+              <block type="Message" id="Cy]?obe6^|qd:q|~x=!l"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="D@{smihgDdKQyPXwAbfD">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF2">
+          <block type="logic_compare" id="pp,WS:O:pp?o=/=^jXxG">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="1jO1s/F_UI(ChthDA^aF"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="18_|teoF^$Cm$}6PwV(H">
+                <field name="TEXT">Hello</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO2">
+          <block type="jg_messages_react_to_message_with_reaction" id="|RtykVcIRc-2W#$:LuM2">
+            <value name="MESSAGE">
+              <block type="Message" id="{E@H2`6:lx;]db]^%};8"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="j!0B~B[/TN~l;{+gp(g$">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF3">
+          <block type="logic_compare" id="NU.*UX#)0|1@=N;710a#">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="dn94GZk0{`?x=eu{NCxp"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="T8$.f|:35xQz~m,kfn++">
+                <field name="TEXT">slt</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO3">
+          <block type="jg_messages_react_to_message_with_reaction" id="X_By@K_-C}6r+=cNoy2l">
+            <value name="MESSAGE">
+              <block type="Message" id="tb(}3!)A+-~rW(FPO04["></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="uqpqHZn_K]!aulyPgqbH">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF4">
+          <block type="logic_compare" id="rz88CG|z+bHD7iShCFNj">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id=".1fY8Wpyadp+@ay{J]j|"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="k62h*]#ZdP:Ka+C~BXK{">
+                <field name="TEXT">Bjr</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO4">
+          <block type="jg_messages_react_to_message_with_reaction" id="}+/!*{Imwy=.0e6e5N{u">
+            <value name="MESSAGE">
+              <block type="Message" id="`@N0iNsCERR4HK$o((JM"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="RkGQWb:w!waR*R^,Pk?X">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF5">
+          <block type="logic_compare" id="ZzJ+zusg_)4r|T;ESAEp">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="7t+vI-%Y3n9Ci=tz!5oP"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="-,!$RxI*@pD~F-2@2I~J">
+                <field name="TEXT">bjr</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO5">
+          <block type="jg_messages_react_to_message_with_reaction" id="IK7c6nklcvLAuFXmvb`1">
+            <value name="MESSAGE">
+              <block type="Message" id="M3B?|$2pg=iHiN`q#k?;"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="+G,nDhQW8ffMfwQDDa*?">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF6">
+          <block type="logic_compare" id="dDHp{3*|/*SGAJnhN=RM">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="A~hTL[*I7+3lsa5m~h9g"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="7xsoTDGz`H=(vL~]{?1#">
+                <field name="TEXT">Slt</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO6">
+          <block type="jg_messages_react_to_message_with_reaction" id="%IG*~7H%rjXPmlmb=)Wa">
+            <value name="MESSAGE">
+              <block type="Message" id="Xsnoc1EC07]`kS*Ldhl}"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="E!pGb.{gBzrM2^;s@z((">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF7">
+          <block type="logic_compare" id="5dtHV1VPUq0Bswa`FldP">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="RN-/;z`=^UG`-sXh$fkC"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="y]PVBV#Ag0sAe]RXDOEk">
+                <field name="TEXT">Salut</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO7">
+          <block type="jg_messages_react_to_message_with_reaction" id="`t[!ahP`2Z5^[dvt^#Wx">
+            <value name="MESSAGE">
+              <block type="Message" id="aap!!8VoZaimG`;,l;s:"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="d(-|KGwKk5N0V1yZ1r-}">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF8">
+          <block type="logic_compare" id="(=[cAWGe`2DDt7XN_Y9~">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="@F`U+)`f6SP7Q@=f|a6X"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="[Gn/ql]ah(hkRCpWwC)v">
+                <field name="TEXT">salut</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO8">
+          <block type="jg_messages_react_to_message_with_reaction" id="qOAw]Co+Xsr*df]:~mk?">
+            <value name="MESSAGE">
+              <block type="Message" id="#O@2pplbjdB5HAgNOWL="></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="X}s*$s$H1SF{46zJdZhv">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF9">
+          <block type="logic_compare" id="}u^;Xha9v_Xus}UVj=pu">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="72^L4NBV|Bcl9FG$IBrr"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="^v456T/7@UrlSY-1@Ra5">
+                <field name="TEXT">bonjour</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO9">
+          <block type="jg_messages_react_to_message_with_reaction" id="oZ9{JT0[n7NF8zZ0):BC">
+            <value name="MESSAGE">
+              <block type="Message" id="1:1d,b|)Re:ai`RAvMi("></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="eP1Z.[!==s0UlK$;hj9+">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF10">
+          <block type="logic_compare" id="u(1pmhFbiiSfs5)TSye}">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="nQ:DoKS5y,)`PXt`Ay*Y"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="EI/%]{[HTM1=o|nSDwVS">
+                <field name="TEXT">Bonjour</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO10">
+          <block type="jg_messages_react_to_message_with_reaction" id="Sp7e`3:yQ+l#VfyJ_!}2">
+            <value name="MESSAGE">
+              <block type="Message" id="k2oc3d~icS25C5XwmDZ@"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id=":}o#HyV/m0z4G+^{kVLr">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF11">
+          <block type="logic_compare" id="f.Jy|o4Ywm=yt$?q8fIn">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="})JcmDJHM*TFB2p.kAv@"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="ET.oC^rO=l*:%JHnEv8j">
+                <field name="TEXT">Yo</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO11">
+          <block type="jg_messages_react_to_message_with_reaction" id="V]:xkH$|{*1h{Xcjo9)A">
+            <value name="MESSAGE">
+              <block type="Message" id="faaSI)T;.4Z_B}Q$]$(r"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="T:4SP*Dbrnxh)#@k-{qi">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF12">
+          <block type="logic_compare" id="|~xhH1E9C53A.{n@coH;">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="aI%.L.1X@gZaYyW.ehKy"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="({^a22e9ey?=g/Oj0{e`">
+                <field name="TEXT">Yoo</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO12">
+          <block type="jg_messages_react_to_message_with_reaction" id=".3|FFdC]dtS|~3FwWM;X">
+            <value name="MESSAGE">
+              <block type="Message" id="{z~z8~rWj@kJMw3slXn)"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="8{)`=KJAB?o8!c;Yb,me">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF13">
+          <block type="logic_compare" id="~l$W@v((J*5nh7dJo1HQ">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="}:2H5*NX]7{iowPlz8oZ"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="2C#GQV/i[sjuMG2.l(wT">
+                <field name="TEXT">Yooo</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO13">
+          <block type="jg_messages_react_to_message_with_reaction" id="2U_Pw2UNI%X|{(XXYOh~">
+            <value name="MESSAGE">
+              <block type="Message" id=",,322*Q70*UHI%}3WEKa"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="JFbe_E.B0UpS!cP]*tY_">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF14">
+          <block type="logic_compare" id=")VHKMJ19!~iT0nZ|TH}y">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="1J5WAh!4I2F0{g[Dk`5L"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="q}{r*w3d$Fm=UM4W,iwt">
+                <field name="TEXT">yo</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO14">
+          <block type="jg_messages_react_to_message_with_reaction" id="-R*eRp%#I3h{At/p:a@i">
+            <value name="MESSAGE">
+              <block type="Message" id="*{gV=R;hd(/,8#C7V}pX"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="!4WFE0JMeN~}w_B,7w{c">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF15">
+          <block type="logic_compare" id="g2FQHhwotDh#7HCbW:Pv">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="P#h`4}~.y^Xc?Kec#X/+"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="giL,OKb_$;f!-G:F89V{">
+                <field name="TEXT">yoo</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO15">
+          <block type="jg_messages_react_to_message_with_reaction" id="slY06?QO8PC4voAaXT,r">
+            <value name="MESSAGE">
+              <block type="Message" id="e%UxaxSM.a9wEP8kj-%~"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="Iel=@7?IpOBGE*H_vI~}">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF16">
+          <block type="logic_compare" id="yKV`Pg(k9AZaV2kQ~OdO">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="Oy|r3%`PFl@N;t`rRXhh"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="*r0=eA`MJONP;KhUgnW:">
+                <field name="TEXT">yooo</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO16">
+          <block type="jg_messages_react_to_message_with_reaction" id="wnL:?Kr^=-sjD)~Ml|b-">
+            <value name="MESSAGE">
+              <block type="Message" id="Dvw9}zLQ]Ctvdp(.gk`J"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="oSki3MEhekl+GyN{5R^@">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF17">
+          <block type="logic_compare" id="hXFlio-c!hlw/yK7Q!sK">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="8M)vA7QJ4}|QhJo/zhBk"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="iLk~L6F][zfR52*HkNA}">
+                <field name="TEXT">Hello</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO17">
+          <block type="jg_messages_react_to_message_with_reaction" id="LmSiJd9uI.@la|dO)PEW">
+            <value name="MESSAGE">
+              <block type="Message" id="7eB?/H#FP4}sKmChjqLF"></block>
+            </value>
+            <value name="REACTION">
+              <block type="text" id="1654b0JUiGY^n^O{)l~u">
+                <field name="TEXT">👋🏻</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="s=g.,hMm-:w^a-k+GKD3" x="-1242" y="-1557">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="G~~purFbV:{GZ=zIlnx:">
+        <value name="IF0">
+          <block type="logic_compare" id="PXTqLz.B}XFp7q|6(rrQ">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="Xj;0:y5E4__umd;OjJqR"></block>
+            </value>
+            <value name="B">
+              <block type="text_join" id="N:Mxdi2muIM)N$PuUWmm">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="cWo[#oRs@;(o/nokg9L[">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="?JdYpp21[RtK.wxxZ4Q^">
+                    <field name="TEXT">ping</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="s4d_reply" id="U{/oxD0`*f?fW[Kc/O`/">
+            <value name="CONTENT">
+              <shadow type="text" id="bLiOeXWbE2SC3.o$Ejqe">
+                <field name="TEXT">Hey!</field>
+              </shadow>
+              <block type="gsa_simple_embed" id="*Qwb3`e93Sq;QG@a^k4l">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                <value name="COLOR">
+                  <block type="colour_picker" id="pEQT27y/)%NW,^Z?L]_9">
+                    <field name="COLOUR">#ff0000</field>
+                  </block>
+                </value>
+                <value name="TITLE">
+                  <block type="jg_text_remake_paragraph_quotes" id="!,5nf#]XrBUY))J24zAj">
+                    <field name="TEXT">&gt; Ping Everest </field>
+                  </block>
+                </value>
+                <value name="DESCRIPTION">
+                  <block type="text_join" id="IHKe;-hjD|;dx[ksnX,@">
+                    <mutation items="3"></mutation>
+                    <value name="ADD0">
+                      <block type="text" id="6mgFR;37KH?5-#Vq:oKq">
+                        <field name="TEXT">&gt; **Ping actuel du bot : </field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="s4d_bot_ping" id="[x~eBU_.GyB+2yH^vgxh"></block>
+                    </value>
+                    <value name="ADD2">
+                      <block type="text" id="UAZJB9xdilt@#fP=7hj:">
+                        <field name="TEXT">ms**</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="WSwjsKy^rP~9F~g8b-D_" x="-2849" y="-1081">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="X60He);CJD/)]dCL!bv*">
+        <value name="IF0">
+          <block type="logic_compare" id="pAm;}%m/2mHxWaeozOO!">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="dvOk9zWQd#b1,T+@jE9/"></block>
+            </value>
+            <value name="B">
+              <block type="text_join" id="@mI0![x@g.O}T?j3[jG@">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="^#OR$_`%AF|?3-gV|bM~">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="jmqF6$?oCD}9c/;ghOWi">
+                    <field name="TEXT">setprefix</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="`|Ya,Wlm*w,;}~nfTJLg">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="s4d_member_has_permission" id="_MxV(%tBbH~E2rd9#XgV">
+                <field name="PERMISSION">MANAGE_GUILD</field>
+                <value name="MEMBER">
+                  <block type="s4d_message_author" id="97F5(QR;g!C:AR#_{dLT"></block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="s4d_send_wait_reply" id=";4;{v-5w1Ekit-NDu*;j">
+                <value name="CONTENT">
+                  <block type="gsa_simple_embed" id="+?;tjlUCklXap2T;Ov?.">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="k,D!:DOBk$T1HWa)GUtM">
+                        <field name="COLOUR">#3366ff</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="W/_D=;s:pkU[?XmkDkcQ">
+                        <field name="TEXT">Everest Anime [FR]</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="3_;hSSvz%zcr/Wh2-^ol">
+                        <field name="TEXT">&gt; Faîtes `cancel` pour annuler </field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="CHANNEL">
+                  <block type="s4d_message_channel" id="U-P/b{T~1n/7e51iZg^g"></block>
+                </value>
+                <value name="MEMBER">
+                  <block type="s4d_message_member" id="E(G7*F%3Of#(*3eJ$0*;"></block>
+                </value>
+                <value name="TIME">
+                  <block type="math_number" id="oc_m6co;kjuw@b46HC=d">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="variables_set" id="ZU]|?G.cBZ0sMZtTtB`q">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                    <value name="VALUE">
+                      <block type="s4d_send_wait_reply_value" id="2?^SaVbc?h;oP.i:%jw3"></block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="er5dE_n`2zbp,6vD]x-W">
+                        <mutation else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_compare" id=";EKc-UyP7NUL:8p%tS85">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="lZ|W%CKvZMp`LK+rrUy;">
+                                <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="jg_text_remake_paragraph_quotes" id="~JwNR@T;q2x~md!j{VUX">
+                                <field name="TEXT">cancel</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="s4d_reply_then" id="kH5I9_Ua^g#fSPl-]1{1">
+                            <value name="CONTENT">
+                              <shadow type="text" id=".4Yg`ho~bYJ5h)Y}/?c=">
+                                <field name="TEXT"></field>
+                              </shadow>
+                              <block type="gsa_simple_embed" id="hhY{p9OL#TfK.q(#|PE%">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true"></mutation>
+                                <value name="COLOR">
+                                  <block type="colour_picker" id="($0Xr$7T5k2RLub{zEus">
+                                    <field name="COLOUR">#33ff33</field>
+                                  </block>
+                                </value>
+                                <value name="TITLE">
+                                  <block type="jg_text_remake_paragraph_quotes" id="GM?uQKzbo6thUE=:V+U7">
+                                    <field name="TEXT">Le changement de préfixe a bien été annulé ! </field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="s4d_wait_seconds" id="K-~L38Jb3Vl=]~^q;zby">
+                                <value name="TIME">
+                                  <block type="math_number" id="J5w-(G7A(*XFReLB/_Ht">
+                                    <field name="NUM">3</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="s4d_reply_delete" id="}b0d(ZO/sU{y}ls/^c(s">
+                                    <next>
+                                      <block type="s4d_return" id="c{)5W1}P}TQ@PgBQ+Z(?"></block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="s4d_reply_then" id="J18JVkmId$@h]Bena@cx">
+                            <value name="CONTENT">
+                              <shadow type="text" id="0R[0(EyvO.xTpi6hI]W-">
+                                <field name="TEXT"></field>
+                              </shadow>
+                              <block type="gsa_simple_embed" id="^Uo*hAl;dBqcKDEciDR6">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                <value name="COLOR">
+                                  <block type="colour_picker" id="yv]^lzN!qi5TLsn,osvG">
+                                    <field name="COLOUR">#33ff33</field>
+                                  </block>
+                                </value>
+                                <value name="TITLE">
+                                  <block type="jg_text_remake_paragraph_quotes" id="BxHY=|MSQn29R9]?$un#">
+                                    <field name="TEXT">&gt; Changement de préfix effectué !</field>
+                                  </block>
+                                </value>
+                                <value name="DESCRIPTION">
+                                  <block type="text_join" id="w%E90+G9%M4vQ$`7wy#j">
+                                    <mutation items="4"></mutation>
+                                    <value name="ADD0">
+                                      <block type="jg_text_remake_paragraph_quotes" id="CiEM4j`U[%J3s_M3%[+k">
+                                        <field name="TEXT">&gt; Le préfix actuel est désormais : </field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD1">
+                                      <block type="jg_text_remake_paragraph_quotes" id="cMt@:-LW2340=v{v~jz/">
+                                        <field name="TEXT">`</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD2">
+                                      <block type="variables_get" id="k)W:zRTe/5jH56?2z~h1">
+                                        <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD3">
+                                      <block type="jg_text_remake_paragraph_quotes" id="u|TiWt+3c}.R+6K:y=7o">
+                                        <field name="TEXT">`</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="s4d_wait_seconds" id="I;)DdpymH|1=,,~GgT6i">
+                                <value name="TIME">
+                                  <block type="math_number" id="#7Nz;Lav:*q3d%k|SeJT">
+                                    <field name="NUM">3</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="s4d_reply_delete" id="`|8n.?Q#r)`2?^/J$z%c"></block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="CATCH">
+                  <block type="s4d_reply" id="03Qkxa-I.+8gVbp*ND^v">
+                    <value name="CONTENT">
+                      <block type="gsa_simple_embed" id="Nk41kYs{d3E`A~TJ+MUU">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                        <value name="COLOR">
+                          <block type="colour_picker" id="ZCVcc3hwM+@U0[}rk7*C">
+                            <field name="COLOUR">#ff0000</field>
+                          </block>
+                        </value>
+                        <value name="TITLE">
+                          <block type="jg_text_remake_paragraph_quotes" id="hR?$eb5,#tZvU4f.iF8,">
+                            <field name="TEXT">Temp écoulé</field>
+                          </block>
+                        </value>
+                        <value name="DESCRIPTION">
+                          <block type="jg_text_remake_paragraph_quotes" id="XtC*hWPUtjRZyZ0h%vs6">
+                            <field name="TEXT">&gt; **1 minute est écoulé...** </field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="s4d_reply_then" id="GG16BKB!sIy!ag+Mu)~8">
+                <value name="CONTENT">
+                  <shadow type="text" id="3Nxzb//l[N_%TVB:WLVN">
+                    <field name="TEXT">Hey!</field>
+                  </shadow>
+                  <block type="gsa_simple_embed" id="N@w$J9mU]bw%Q(p0NMmK">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="piUJ1.4vq{$vxN#;_B.S">
+                        <field name="COLOUR">#ff0000</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="b`|x~VrIv{`,4DRL:}av">
+                        <field name="TEXT">&gt; Permission manquante</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="!DbP4qR3-}rxAz-Zk%`S">
+                        <field name="TEXT">&gt; **Il vous manque la permission : manager server**</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="s4d_wait_seconds" id="IrWkxXM~4QPq`QYhKcf7">
+                    <value name="TIME">
+                      <block type="math_number" id="tqmUs_m)QU}c[wl6`7Rb">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="s4d_reply_delete" id=",xa}H!r(uw0P+$h:z2wd"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="k3RQ;KM`H]oZ$7nu[DTZ" x="-183" y="-917">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="(o_9TQa-bCbTHPy0OhQf">
+        <value name="IF0">
+          <block type="logic_compare" id="YLM|s#-0Ah0NQ^e4mEt-">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="BC%3Fg.Qir9bLy#~:~U/"></block>
+            </value>
+            <value name="B">
+              <block type="text_join" id="7Q:Q=~%o(jxhJ;p|-[:7">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="f{,8=(v5:82`We+pP2qq">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="ckwWWYTqH+=#]=o28U6F">
+                    <field name="TEXT">help</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="s4d_reply_then" id="V{1^d{S3x4HsXp4Hb9i4">
+            <value name="CONTENT">
+              <shadow type="text" id="[)R3NG;nz~z@nF6_-8Sf">
+                <field name="TEXT">&gt; **Les aides à propos du serveur et du bot apparaitront dans quelques instants...**  </field>
+              </shadow>
+            </value>
+            <statement name="THEN">
+              <block type="s4d_wait_seconds" id="CD~#(MmR{Z8lA~o:Jha$">
+                <value name="TIME">
+                  <block type="math_number" id="$A6yZc*kk3+p|Gs;K@!3">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="s4d_reply_delete" id="^~`[i@xQt^}V7/i(T#n!"></block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="s4d_reply_then" id="6`K7f*jVPCcqL{~8|FKr">
+                <value name="CONTENT">
+                  <shadow type="text" id="HR7VK-@)DP?suiib],F*">
+                    <field name="TEXT">&gt; **Chargement...**</field>
+                  </shadow>
+                </value>
+                <statement name="THEN">
+                  <block type="s4d_wait_seconds" id="IYC}!VHv+D6htormn(P0">
+                    <value name="TIME">
+                      <block type="math_number" id="B.-#msIl`v-5|a^r!m5i">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="s4d_reply_delete" id="Y4bzOaBNmuA)Q;ht0GJI"></block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="s4d_reply" id="I+wpzOfPPMPe}an,=a];">
+                    <value name="CONTENT">
+                      <block type="gsa_simple_embed" id="2DSy{O+n1,G$%u_|Z~}{">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                        <value name="COLOR">
+                          <block type="colour_picker" id="K4,`m2$B7a`%E2{GQv)e">
+                            <field name="COLOUR">#3366ff</field>
+                          </block>
+                        </value>
+                        <value name="TITLE">
+                          <block type="jg_text_remake_paragraph_quotes" id="#-$M$GCyl1n@|G#~j*qK">
+                            <field name="TEXT">&gt; Aide serveur et Bot </field>
+                          </block>
+                        </value>
+                        <value name="DESCRIPTION">
+                          <block type="text_join" id="7ge|KFqxY_R1/pdZOErE">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="jg_text_remake_paragraph_quotes" id="@c7yxP@vZK]}Sa5sI!ZG">
+                                <field name="TEXT">&amp;#10;&gt; **Commandes :**&amp;#10;&amp;#10;&gt; **help : voir les aides à propose du bot et du serveur**&amp;#10;&amp;#10;&gt; **ping : voir le ping actuel du bot **&amp;#10;&amp;#10;&gt; **setprefix : définir le préfixe du bot Everest **&amp;#10;&amp;#10;&gt; **welcomedm : configurer le message de bienvenue en dm**&amp;#10;&amp;#10;&gt; **seewelcomedm : regarder l'embed de bienvenue en message privé actuel**&amp;#10;&amp;#10;&gt; **embed : faire un embed avec un titre ,une description et une image .**&amp;#10;&amp;#10;&gt; **rules : réécrire le règlement**&amp;#10;&amp;#10;&gt; **clear : supprimer des messages**&amp;#10;&amp;#10;&gt; **sethelpserver : configurer le système d'aide de serveur ( c'est à dire que les aides apparaîtront sur cette embed juste en dessous des commandes et des informations complémentaires )**&amp;#10;&amp;#10;&gt; **Information complémentaire **&amp;#10;&amp;#10;&gt; **Ce bot discord est développé par &lt;@816100601280331827&gt; ,owner de Everest Anime [FR] et de Everest Anime Chill [FR]!**&amp;#10;&amp;#10;</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="variables_get" id="msSq:k/KJIF2WTer$Ey|">
+                                <field name="VAR" id="fN51?Dg3dX?9O==HrO6;">help_server</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="Y$w#EB`=^xk$W}_XDF;+" x="-1546" y="-744">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="~HBhX.GI2GUY;=#JAH=@">
+        <value name="IF0">
+          <block type="logic_compare" id="OAs9p^^KmMjw67k0%zAg">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="Z,||*KwXU0CP9D`u`jVP"></block>
+            </value>
+            <value name="B">
+              <block type="text_join" id="mCRbIKI|;uo[L+Vl6/h[">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="|j+82eS{L!y_N=`+N,Zi">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id=":J^tgB$*pt*2L~j!mhI?">
+                    <field name="TEXT">embed</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="gRpN4XEk+EW/]X3Z|(-O">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="s4d_member_has_permission" id="_DowLtxXz51ET5vwm(9y">
+                <field name="PERMISSION">MANAGE_GUILD</field>
+                <value name="MEMBER">
+                  <block type="s4d_message_author" id="F_vAP-C6B8Cx)FpSm78k"></block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="s4d_send_wait_reply" id="X1KHxDWQ%Cio{zq}gZJ5">
+                <value name="CONTENT">
+                  <block type="gsa_simple_embed" id="kIk1nQnn`g4Qj!Z0hWIj">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="N|{j,8agT5ls{AtUv:HD">
+                        <field name="COLOUR">#3366ff</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="?r6N*zyf_rg`.t7b0qmz">
+                        <field name="TEXT">&gt; Quelle sera le titre de votre embed ?</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="SQu8q85P~WeUqQ-dWknt">
+                        <field name="TEXT">&gt; Choisissez le titre de votre embed &amp;#10;&amp;#10;&gt; Faîtes `cancel` pour annuler</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="CHANNEL">
+                  <block type="s4d_message_channel" id="Fk*3TIc!0SGM{nGM@0^y"></block>
+                </value>
+                <value name="MEMBER">
+                  <block type="s4d_message_member" id="$KJ2CT{Ff54xfCvw)mra"></block>
+                </value>
+                <value name="TIME">
+                  <block type="math_number" id="}1^9f9+H(6lLz34E,QK8">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="variables_set" id="NgJPruT,NBl|:A%b_mL/">
+                    <field name="VAR" id="YtR-yYrY9h`6-r1-*Q#W">embed_title</field>
+                    <value name="VALUE">
+                      <block type="s4d_send_wait_reply_value" id="kP!_jM@GdT*^iJPH_.$q"></block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="xbf)Mm$]Rg}e3N0{^{Ti">
+                        <mutation else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_compare" id="MJ@_({?_Do.M:WGQ;ZY#">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="KJT`qh86prD[NB{5v)mF">
+                                <field name="VAR" id="YtR-yYrY9h`6-r1-*Q#W">embed_title</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="text" id="?kIg2*.GfUuql^3[s@}V">
+                                <field name="TEXT">cancel</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="s4d_reply_then" id="*$lJ;=2YQ+E/Z|[hy:PE">
+                            <value name="CONTENT">
+                              <shadow type="text" id="Ll*6+Axghzgf6{B?.M0*">
+                                <field name="TEXT"></field>
+                              </shadow>
+                              <block type="gsa_simple_embed" id="p_{X-2%8^bwb=ILo]-%l">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true"></mutation>
+                                <value name="COLOR">
+                                  <block type="colour_picker" id="8nR+nq?Md@_Gnr%.0`*o">
+                                    <field name="COLOUR">#33ff33</field>
+                                  </block>
+                                </value>
+                                <value name="TITLE">
+                                  <block type="jg_text_remake_paragraph_quotes" id="25,KzL3GI,lsj:::ezPG">
+                                    <field name="TEXT">&gt; L'embed a bien été annulé !</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="s4d_wait_seconds" id="dmZ8!v_dovxWUnO+-kKI">
+                                <value name="TIME">
+                                  <block type="math_number" id="Aov*B~oOK|qkt)R-$UvA">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="s4d_reply_delete" id="0|y+|_u=LP2zm9p[47iv"></block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="s4d_send_wait_reply" id="9`QLob5T8T3+tkI:VKFt">
+                            <value name="CONTENT">
+                              <block type="gsa_simple_embed" id="XJ6MJ$SrPPPyk`1}FWj+">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                <value name="COLOR">
+                                  <block type="colour_picker" id="eFoE!TsayOes#JFxCqEj">
+                                    <field name="COLOUR">#3366ff</field>
+                                  </block>
+                                </value>
+                                <value name="TITLE">
+                                  <block type="jg_text_remake_paragraph_quotes" id="9DMNs[{xfySJI2T.TjOY">
+                                    <field name="TEXT">&gt; Quelle sera la description de l'embed ?</field>
+                                  </block>
+                                </value>
+                                <value name="DESCRIPTION">
+                                  <block type="jg_text_remake_paragraph_quotes" id="c,sH$ozttDT#t@4`|mC-">
+                                    <field name="TEXT">&gt; Choisissez  une description pour votre embed&amp;#10;&amp;#10;&gt; Faîtes `cancel pour annuler`</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="CHANNEL">
+                              <block type="s4d_message_channel" id="nV#}8OQ/mU]ftPHcBagk"></block>
+                            </value>
+                            <value name="MEMBER">
+                              <block type="s4d_message_member" id="e1$[7d%8=xatK{49]_P."></block>
+                            </value>
+                            <value name="TIME">
+                              <block type="math_number" id=";7[!@Mu-=:=@tMsM%C;o">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="variables_set" id="/~dU(-g-@GUqBB~ry+G}">
+                                <field name="VAR" id="L^XN4~}Vn-:PLh5G-v@/">embed_description</field>
+                                <value name="VALUE">
+                                  <block type="s4d_send_wait_reply_value" id="k6LAdfC1~7^{fRzNT0FV"></block>
+                                </value>
+                                <next>
+                                  <block type="controls_if" id="KW*zUq{U=)NfW)v0B#QL">
+                                    <mutation else="1"></mutation>
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="t{u0Q}_s]C(wrVKqL{!Z">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="Qv+(1@)/:8I`.yyJeuqC">
+                                            <field name="VAR" id="L^XN4~}Vn-:PLh5G-v@/">embed_description</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="jg_text_remake_paragraph_quotes" id=",Tr(JeZekd|9WzTcs@d(">
+                                            <field name="TEXT">cancel</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="s4d_reply_then" id="B)?lggLAKe6_sec7({8z">
+                                        <value name="CONTENT">
+                                          <shadow type="text" id="Ll*6+Axghzgf6{B?.M0*">
+                                            <field name="TEXT"></field>
+                                          </shadow>
+                                          <block type="gsa_simple_embed" id="Y9{1}Uh{tiw~yt[oa}LX">
+                                            <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true"></mutation>
+                                            <value name="COLOR">
+                                              <block type="colour_picker" id="dCa6Oqko2s[g,IV0o2!(">
+                                                <field name="COLOUR">#33ff33</field>
+                                              </block>
+                                            </value>
+                                            <value name="TITLE">
+                                              <block type="jg_text_remake_paragraph_quotes" id="F`AV$J6VG=fnEG0cfLNS">
+                                                <field name="TEXT">&gt; L'embed a bien été annulé !</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="THEN">
+                                          <block type="s4d_wait_seconds" id="q@OQ};vRXz,dr|[e`fc_">
+                                            <value name="TIME">
+                                              <block type="math_number" id="O2;irz-2v@4!:)Sb#Swf">
+                                                <field name="NUM">2</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="s4d_reply_delete" id="=eaB$y8d!:6H,_0R6W[-"></block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </statement>
+                                    <statement name="ELSE">
+                                      <block type="s4d_send_wait_reply" id="zU]yE%C6QN3Lm9ul1_xs">
+                                        <value name="CONTENT">
+                                          <block type="gsa_simple_embed" id="8Ze#Vy%/EJmi`@,ln%Js">
+                                            <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                            <value name="COLOR">
+                                              <block type="colour_picker" id="p7hxnq+rDAD5Uo_=DAaE">
+                                                <field name="COLOUR">#3366ff</field>
+                                              </block>
+                                            </value>
+                                            <value name="TITLE">
+                                              <block type="jg_text_remake_paragraph_quotes" id="NR76nIj0xymDkOkcXY3,">
+                                                <field name="TEXT">&gt; Quelle sera l'image de votre embed ?</field>
+                                              </block>
+                                            </value>
+                                            <value name="DESCRIPTION">
+                                              <block type="jg_text_remake_paragraph_quotes" id="i~x[Yo9.VLT:$k=.nlwP">
+                                                <field name="TEXT">&gt; Ajoutez une image à votre embed &amp;#10;&amp;#10;&gt; Faîtes `cancel` pour annuler</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="CHANNEL">
+                                          <block type="s4d_message_channel" id=",Em33`6-WZ?CkR@q22qg"></block>
+                                        </value>
+                                        <value name="MEMBER">
+                                          <block type="s4d_message_member" id="|,cOQQ,u|4=*MJ_N60=+"></block>
+                                        </value>
+                                        <value name="TIME">
+                                          <block type="math_number" id=")t:Z^wCQ(.Y6`q*TPFPk">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <statement name="THEN">
+                                          <block type="variables_set" id="lKFPqa7qQPnKM5(-fm0L">
+                                            <field name="VAR" id="M/RUBI)UV]^aUPh9!yGn">embed_image</field>
+                                            <value name="VALUE">
+                                              <block type="s4d_send_wait_reply_value" id="3{*@z0QmO6)8tI%7)8]*"></block>
+                                            </value>
+                                            <next>
+                                              <block type="controls_if" id="D.VE`k{[zHFT?D,_KXZY">
+                                                <mutation else="1"></mutation>
+                                                <value name="IF0">
+                                                  <block type="logic_compare" id=":G0n#+2$Ayg;Gbdvv|ck">
+                                                    <field name="OP">EQ</field>
+                                                    <value name="A">
+                                                      <block type="variables_get" id="HNT/2=W*CHw5IPY|;o0^">
+                                                        <field name="VAR" id="M/RUBI)UV]^aUPh9!yGn">embed_image</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="jg_text_remake_paragraph_quotes" id="1-Sv$VIR{p7}lR%:yMrZ">
+                                                        <field name="TEXT">cancel</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                  <block type="s4d_reply_then" id="N;!h_t^*-`7?Q=5Y{5X#">
+                                                    <value name="CONTENT">
+                                                      <shadow type="text" id="Ll*6+Axghzgf6{B?.M0*">
+                                                        <field name="TEXT"></field>
+                                                      </shadow>
+                                                      <block type="gsa_simple_embed" id=":P2.`W41y.1sD6!5T=lc">
+                                                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true"></mutation>
+                                                        <value name="COLOR">
+                                                          <block type="colour_picker" id="O,Gk[_(]w6.(*-G4Li@Y">
+                                                            <field name="COLOUR">#33ff33</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="TITLE">
+                                                          <block type="jg_text_remake_paragraph_quotes" id="S*rRkhBm5]`f=.~RQLeZ">
+                                                            <field name="TEXT">&gt; L'embed a bien été annulé !</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="THEN">
+                                                      <block type="s4d_wait_seconds" id="$g+SiEFW?f%)q]OQ=rj%">
+                                                        <value name="TIME">
+                                                          <block type="math_number" id="?}o:.SJD~^x0;hccxeso">
+                                                            <field name="NUM">2</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="s4d_reply_delete" id="aEhm=r|D~[xrHCFlPzDv"></block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                  </block>
+                                                </statement>
+                                                <statement name="ELSE">
+                                                  <block type="s4d_send_wait_reply" id="`I:oaXBXZM6yt`=akAzA">
+                                                    <value name="CONTENT">
+                                                      <block type="gsa_simple_embed" id="{X?dB{A|C^{8|pgm{`t0">
+                                                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                                        <value name="COLOR">
+                                                          <block type="colour_picker" id="|SjTAA!u-f`id*3+xO@}">
+                                                            <field name="COLOUR">#3366ff</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="TITLE">
+                                                          <block type="jg_text_remake_paragraph_quotes" id="/og4Al:wtvFpQl.(ahy(">
+                                                            <field name="TEXT">&gt; Quelle sera la couleur de l'embed ?</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="DESCRIPTION">
+                                                          <block type="jg_text_remake_paragraph_quotes" id="g2(((j@y93CO4DDZ5|-?">
+                                                            <field name="TEXT">&gt; **Couleur disponible :**&amp;#10;&amp;#10;`bleu foncé`&amp;#10;`bleu ciel`&amp;#10;`rouge`&amp;#10;`violet`&amp;#10;`vert`&amp;#10;`jaune`&amp;#10;`rose`&amp;#10;`marron`&amp;#10;`orange`&amp;#10;`random` = choisir une couleur au hasard</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="CHANNEL">
+                                                      <block type="s4d_message_channel" id="#=h-H(Ag|%?3^}p-5Rvd"></block>
+                                                    </value>
+                                                    <value name="MEMBER">
+                                                      <block type="s4d_message_member" id="FlSE5?w:jowo9^L!SZku"></block>
+                                                    </value>
+                                                    <value name="TIME">
+                                                      <block type="math_number" id="]3_#)`thG/2C_0rafF+r">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="THEN">
+                                                      <block type="controls_if" id="/e-e,H#vA9)((b7phKmP">
+                                                        <mutation elseif="9" else="1"></mutation>
+                                                        <value name="IF0">
+                                                          <block type="logic_compare" id="Tg{DO++XpJZK(8g8@XN;">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id="de=3rTD}7J:h%*XK),#V"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="J`|FUu=44tKMEQUUh|5E">
+                                                                <field name="TEXT">bleu foncé</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO0">
+                                                          <block type="variables_set" id="Pvg2V-ew.cBwb)0q3$TW">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_picker" id="8Y@AH-FWk!||iHwIZT=,">
+                                                                <field name="COLOUR">#3333ff</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <value name="IF1">
+                                                          <block type="logic_compare" id="UFa~4:^+CrdxGD3r_*jo">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id="oRxDS_}DQm*X|R]PZ=a$"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="Qx$0z`2fi+M`/0i][:_J">
+                                                                <field name="TEXT">bleu ciel</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO1">
+                                                          <block type="variables_set" id="abFq^SuA`@.HhmYj~L54">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_picker" id="e|k}~HwtJ1s?S9khk]07">
+                                                                <field name="COLOUR">#33ccff</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <value name="IF2">
+                                                          <block type="logic_compare" id="w1E?z%WP-J@|qKhb8Fm#">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id=")#;!DX-Q_9+aH{u=rU;L"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="hDx]#:ma2*Mk,bf,^qiq">
+                                                                <field name="TEXT">rouge</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO2">
+                                                          <block type="variables_set" id="Pez8!4QJcnNw`|V|NA3;">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_picker" id="G}[zoTC@%q8N=WSp!+62">
+                                                                <field name="COLOUR">#ff0000</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <value name="IF3">
+                                                          <block type="logic_compare" id="F.9uRgY`og1uwHo)-DtA">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id="z|:Zi)RpZCGs=)Bjq!JD"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="Kf5E2v9Ad7Dv[E)e7/*v">
+                                                                <field name="TEXT">violet</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO3">
+                                                          <block type="variables_set" id="y[fmxb4@.MYml3~8Wcla">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_picker" id="Ua[]W+x#F;3aRFR0u5Al">
+                                                                <field name="COLOUR">#6600cc</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <value name="IF4">
+                                                          <block type="logic_compare" id="KGQH2PD[M^G-j9Kn(H?.">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id="V%I@y(-g?x:-b^[(|)on"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="IsZN2E_n23Z?ld9c5sSm">
+                                                                <field name="TEXT">vert</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO4">
+                                                          <block type="variables_set" id="nR7@{%0~I,Migod^$}p9">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_picker" id="Ldu0~KMfK`kMZ-]#3+@M">
+                                                                <field name="COLOUR">#33ff33</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <value name="IF5">
+                                                          <block type="logic_compare" id="qL~f2mJ+9whdCO~Ky/1m">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id=",$id:@B-E?LoSbI+DaG7"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="wtI+pXPc6svrcBL#%zd_">
+                                                                <field name="TEXT">rose</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO5">
+                                                          <block type="variables_set" id="[Ps~~9XO`tNOl|olB3`A">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_picker" id="AiaT)h2B3u7;%=-K@-q[">
+                                                                <field name="COLOUR">#ff99ff</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <value name="IF6">
+                                                          <block type="logic_compare" id="{PV;s-f]p*BYlNdPvzRD">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id="HAi|Po.*1y:%Vw0x0b87"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="FVR7XX-k5@M56b-ki:m,">
+                                                                <field name="TEXT">jaune</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO6">
+                                                          <block type="variables_set" id="]~zHp%xKXJd7EbPVYJGB">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_picker" id="AUm_`Bp.eg7pYOIU!_QF">
+                                                                <field name="COLOUR">#ffff00</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <value name="IF7">
+                                                          <block type="logic_compare" id="jZnJU)$(5x^UFp|ta|a1">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id="%}sk?-Ac3=m:-m,NSY:X"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="qCP:T(IK0x3Vm_)}Mtz=">
+                                                                <field name="TEXT">marron</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO7">
+                                                          <block type="variables_set" id="hI/]7kDWgF~8o+*$yw?v">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_picker" id="F^,554+c2:dQz(u_v5%+">
+                                                                <field name="COLOUR">#993300</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <value name="IF8">
+                                                          <block type="logic_compare" id="xg$?_wf.cU8:$DN3uW,~">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id="*jMao#8-#1q%(Uw|SGui"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="{GU/:G.0E=,rd=8;]i(F">
+                                                                <field name="TEXT">orange</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO8">
+                                                          <block type="variables_set" id="M=JOi|6RS9#O~jhw{|LA">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_picker" id="WJIkuWkIl;/+%HnUAs?V">
+                                                                <field name="COLOUR">#ff6600</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <value name="IF9">
+                                                          <block type="logic_compare" id="kV?BU}A=JnZ6C|^y4Lid">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="s4d_send_wait_reply_value" id="@dN{TQlM3({Ot^x5{w*D"></block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="?AboQ^FHfb6RvOy31YBj">
+                                                                <field name="TEXT">random</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO9">
+                                                          <block type="variables_set" id="f%[h6z3tbr$X~HfwCDd1">
+                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                            <value name="VALUE">
+                                                              <block type="colour_random" id="=dGwToNRzq6efx*Vx3Ml"></block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <statement name="ELSE">
+                                                          <block type="s4d_reply" id="#23X^dz3nWNlBz%^boHL">
+                                                            <value name="CONTENT">
+                                                              <block type="gsa_simple_embed" id="RhAq4odhhdOz$Sp^$7]l">
+                                                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                                                <value name="COLOR">
+                                                                  <block type="colour_picker" id="Q,#}e?]{$bKcGzI.dsX7">
+                                                                    <field name="COLOUR">#ff0000</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="TITLE">
+                                                                  <block type="jg_text_remake_paragraph_quotes" id="Qd76+j1XZ.7~C9bVO!U6">
+                                                                    <field name="TEXT">&gt; Embed annulé</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="DESCRIPTION">
+                                                                  <block type="jg_text_remake_paragraph_quotes" id="Y`-Wz[7RWZxWe3i%It;a">
+                                                                    <field name="TEXT">&gt; **Raison : couleur invalide ou bien lien d'image invalide**</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <next>
+                                                          <block type="s4d_reply_then" id="6V6v,gIPm$X7_eD8J!!(">
+                                                            <value name="CONTENT">
+                                                              <shadow type="text" id="!1?Twj,Wnh~eTskd_f)R">
+                                                                <field name="TEXT">Hey!</field>
+                                                              </shadow>
+                                                              <block type="gsa_simple_embed" id="rHr`GvR8*?(zBPh]R.4b">
+                                                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                                                <value name="COLOR">
+                                                                  <block type="colour_picker" id="%^=wa)[Ulct|5/buAj5I">
+                                                                    <field name="COLOUR">#33ff33</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="TITLE">
+                                                                  <block type="jg_text_remake_paragraph_quotes" id="u%yY]8(4h,[#=/t_/~2:">
+                                                                    <field name="TEXT">&gt; Création de l'embed en cours...</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="DESCRIPTION">
+                                                                  <block type="jg_text_remake_paragraph_quotes" id="www#PC?W`=Hk{8tw|9q=">
+                                                                    <field name="TEXT">&gt; **Votre embed est entrain d'être généré...** </field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="THEN">
+                                                              <block type="s4d_wait_seconds" id="LE3x`zSgqt7arvRunp!p">
+                                                                <value name="TIME">
+                                                                  <block type="math_number" id="C?Xx?92`*D6U!vUGY$NM">
+                                                                    <field name="NUM">2</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="s4d_reply_delete" id="4,:zBPyn+-s;l5yb8^!o">
+                                                                    <next>
+                                                                      <block type="s4d_reply_then" id="N%22oJDZ,yHg3(GR^LTI">
+                                                                        <value name="CONTENT">
+                                                                          <shadow type="text" id="]-pt?sVP!,zZ)G)yCcf6">
+                                                                            <field name="TEXT">&gt; **En cours d'envoi de l'embed...**</field>
+                                                                          </shadow>
+                                                                        </value>
+                                                                        <statement name="THEN">
+                                                                          <block type="s4d_wait_seconds" id="s4^3/_-!fW/QEy88UoBa">
+                                                                            <value name="TIME">
+                                                                              <block type="math_number" id="Ex}Co$wn7ECmqw%@2e^]">
+                                                                                <field name="NUM">1</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="s4d_reply_delete" id="13Y}2wj0n.oF$B}bfs|@">
+                                                                                <next>
+                                                                                  <block type="s4d_reply" id="1qm(5SP*Vr`mgKr?X:5a">
+                                                                                    <value name="CONTENT">
+                                                                                      <block type="gsa_simple_embed" id="A.UV62w~N!YbsRQ[D7M.">
+                                                                                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true" image="true"></mutation>
+                                                                                        <value name="COLOR">
+                                                                                          <block type="variables_get" id="V:qbwjkv[z?ZWaG4Kdh{">
+                                                                                            <field name="VAR" id="d_Hy:ef$`v^5eQF4e^ln">embed_color</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="TITLE">
+                                                                                          <block type="variables_get" id="I9(K8V|!O$cQUw$S(yHK">
+                                                                                            <field name="VAR" id="YtR-yYrY9h`6-r1-*Q#W">embed_title</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="DESCRIPTION">
+                                                                                          <block type="variables_get" id="AS=@,_uH^3rNtNz1yse4">
+                                                                                            <field name="VAR" id="L^XN4~}Vn-:PLh5G-v@/">embed_description</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="IMAGE">
+                                                                                          <block type="variables_get" id="!rTh?!}aJZB:9Ulz+zp#">
+                                                                                            <field name="VAR" id="M/RUBI)UV]^aUPh9!yGn">embed_image</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </statement>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </statement>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                    <statement name="CATCH">
+                                                      <block type="s4d_reply" id="1Psekrb7.1~1TjXK`Z|S">
+                                                        <value name="CONTENT">
+                                                          <block type="gsa_simple_embed" id="9nDNHw2VNlC_R#w2(u.Y">
+                                                            <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                                            <value name="COLOR">
+                                                              <block type="colour_picker" id="/.lx~xGt}VJep([q2lY]">
+                                                                <field name="COLOUR">#ff0000</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="TITLE">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="t3_sw49HOA[Nr$H,2TT;">
+                                                                <field name="TEXT">Temp écoulé</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="DESCRIPTION">
+                                                              <block type="jg_text_remake_paragraph_quotes" id="u:m:ksOI^aJEWf,?bJGU">
+                                                                <field name="TEXT">&gt; **1 minute est écoulé...** </field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </statement>
+                                                  </block>
+                                                </statement>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                        <statement name="CATCH">
+                                          <block type="s4d_reply" id="Gw`v:-*tLM!.A6(:o_?K">
+                                            <value name="CONTENT">
+                                              <block type="gsa_simple_embed" id="HXSLv;8yjLA:U]R3]NBr">
+                                                <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                                <value name="COLOR">
+                                                  <block type="colour_picker" id=":h)#sIeukI4-G~P@^%(a">
+                                                    <field name="COLOUR">#ff0000</field>
+                                                  </block>
+                                                </value>
+                                                <value name="TITLE">
+                                                  <block type="jg_text_remake_paragraph_quotes" id="!s@.2y^[4iFg#!Awd)8%">
+                                                    <field name="TEXT">Temp écoulé</field>
+                                                  </block>
+                                                </value>
+                                                <value name="DESCRIPTION">
+                                                  <block type="jg_text_remake_paragraph_quotes" id="alviq7o8[~yz@d0=a-|[">
+                                                    <field name="TEXT">&gt; **1 minute est écoulé...** </field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <statement name="CATCH">
+                              <block type="s4d_reply" id="w[SXwM73Dms%jPSZNsd%">
+                                <value name="CONTENT">
+                                  <block type="gsa_simple_embed" id="Ai8+UBGF7_]5TJRaVs_n">
+                                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                                    <value name="COLOR">
+                                      <block type="colour_picker" id="+J(*O1YgRf3_[x!K?Y@{">
+                                        <field name="COLOUR">#ff0000</field>
+                                      </block>
+                                    </value>
+                                    <value name="TITLE">
+                                      <block type="jg_text_remake_paragraph_quotes" id="Aasn~@mll-jAh6WYGpPA">
+                                        <field name="TEXT">Temp écoulé</field>
+                                      </block>
+                                    </value>
+                                    <value name="DESCRIPTION">
+                                      <block type="jg_text_remake_paragraph_quotes" id="IY*!QG,U5AHBms;Cx74~">
+                                        <field name="TEXT">&gt; **1 minute est écoulé...** </field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="CATCH">
+                  <block type="s4d_reply" id="WdKko4r(+j$6[[^+bGom">
+                    <value name="CONTENT">
+                      <block type="gsa_simple_embed" id="LagZ|:StTM8+/gU)b@,v">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                        <value name="COLOR">
+                          <block type="colour_picker" id="K]?@ok|5Bi[u!/.we-gs">
+                            <field name="COLOUR">#ff0000</field>
+                          </block>
+                        </value>
+                        <value name="TITLE">
+                          <block type="jg_text_remake_paragraph_quotes" id="}*,r2R]ejZ*ROY`}oeBY">
+                            <field name="TEXT">Temp écoulé</field>
+                          </block>
+                        </value>
+                        <value name="DESCRIPTION">
+                          <block type="jg_text_remake_paragraph_quotes" id=";D9{T[n_Lfr%1gU?{V-t">
+                            <field name="TEXT">&gt; **1 minute est écoulé...** </field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="s4d_reply_then" id="yh,nvW(J5XtrX34#Ic4^">
+                <value name="CONTENT">
+                  <shadow type="text" id="3U;dOQ~HpW!JQ!QHWNV4">
+                    <field name="TEXT">Hey!</field>
+                  </shadow>
+                  <block type="gsa_simple_embed" id="K1$hGA^YdaQFia}W:0^H">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="?8{]%m.?WQ+df9{Xv:Ce">
+                        <field name="COLOUR">#ff0000</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id=".[5HlMnzV;pi,N2Y%O:z">
+                        <field name="TEXT">&gt; Permission manquante</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="kFgRw~%fah#vRF~Nd6]P">
+                        <field name="TEXT">&gt; **Il vous manque la permission : manage server**</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="s4d_wait_seconds" id="NR(=;W~6YmzaSsE=Uruy">
+                    <value name="TIME">
+                      <block type="math_number" id="@^]9go,XM4`!HZ3J+p9y">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="s4d_reply_delete" id="+w_8)ix0nd1#eiCi8?_-"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="{KR,H|74.!*MqMW4yPtW" x="-36" y="619">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="NYszNttCNc:`ulL#QJ,b">
+        <value name="IF0">
+          <block type="logic_compare" id="#B%/0%^2/$-OB-TFYl(Z">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="4BBe*MTznIQOwWtX?HX}"></block>
+            </value>
+            <value name="B">
+              <block type="text_join" id="FSpL:2+z~*9OQ,hoVbmr">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="T^==0.zOz%f#9i,Yis?r">
+                    <field name="VAR" id="=6`ushn0ewC41R$-^dvJ">prefix</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="K!S+aGcDJOaS!D79})C~">
+                    <field name="TEXT">rules</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="KTmdiMlS(oC|EbbxP-++">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="s4d_member_has_permission" id="q(%FUP5jS-OhBws5XC7d">
+                <field name="PERMISSION">MANAGE_GUILD</field>
+                <value name="MEMBER">
+                  <block type="s4d_message_author" id=";?{[(_LSFCVT/+l-wDzb"></block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="s4d_reply" id="+{xNGNPV^,KdPtf_Bm@]">
+                <value name="CONTENT">
+                  <block type="gsa_simple_embed" id="j`E3EJPyWx5t?@Lcf%}J">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id="bdT$Z7=aCSlrdRz=IGp*">
+                        <field name="COLOUR">#6600cc</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="n@pEj46.7}).Bu9#X@/F">
+                        <field name="TEXT">Règlement Everest Anime [FR]</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="2]VuRB3bzY*d,RT9W3Z3">
+                        <field name="TEXT">**__GLOBALE__**&amp;#10;&amp;#10;```&amp;#10;Article 1・Insulter un membre sur le serveur est interdit&amp;#10;&amp;#10;Article 2・ Demander d'être à un grade sans faire partie des recrutements est interdit&amp;#10;&amp;#10;Article 3・En cas de disputes avec un autre membre ,vous serrez tout les deux sanctionné&amp;#10;&amp;#10;Article 4・Les photos de profil explicite sont interdit&amp;#10;```&amp;#10;&amp;#10;**__Textuel__**&amp;#10;&amp;#10;```&amp;#10;Article 1・Les liens emmenant vers des sites frauduleux sont interdit&amp;#10;﻿&amp;#10;Article 2・Les tokens grabs seront automatiquement sanctionné par un ban&amp;#10;﻿&amp;#10;Article 3・Les liens sont autorisé que dans le salon nommé #média et nul part ailleurs (sauf pour le salon #vos-arts ) tout en respectant l'article 1 et 2&amp;#10;﻿&amp;#10;Article 4・Les doubles comptes sont interdit&amp;#10;﻿&amp;#10;Article 5・le partage de script/exploit est interdit au sein de notre serveur&amp;#10;﻿&amp;#10;Article 6・L'usurpation d'identité est interdite&amp;#10;﻿&amp;#10;Article 7・Les propos raciste ou haineux envers une race sont interdit&amp;#10;﻿&amp;#10;Article 8・L'homophobie est interdite&amp;#10;﻿&amp;#10;Article 9 ・Les invitations vers d'autres serveur qu'Everest Anime Chill [FR] sont interdit&amp;#10;﻿&amp;#10;Article 10・Le spam sera automatiquement sanctionné par un kick et en cas de répétition ,par un ban .&amp;#10;﻿&amp;#10;Article 11・Le contenu sexuelle est interdit&amp;#10;﻿&amp;#10;Article 12・Tout type de conversation/action illégal est interdit﻿&amp;#10;```&amp;#10;&amp;#10;**__Message privé__**&amp;#10;&amp;#10;```&amp;#10;Article 1・Des insultes entres des membres de notre serveur en message privé sera sanctionné si celui-ci est report dans&amp;#10;﻿&amp;#10;Article 2・Les Pub en message privé sans l'autorisation du destinataire sont interdits&amp;#10;&amp;#10;Article 3・Les articles 1,2,4,5 et 8 textuel s'appliquent aussi sur les message privé&amp;#10;﻿&amp;#10;Article 4・L'harcèlement est interdit&amp;#10;﻿&amp;#10;Article 5・Ne partagez pas d'information fausse ou trompeuse﻿&amp;#10;```&amp;#10;&amp;#10;**__Santion__**&amp;#10;&amp;#10;```&amp;#10;Commande dans le mauvais salon = Mute 5 minutes&amp;#10;&amp;#10;Spam = kick automatique&amp;#10;&amp;#10;Spam à répétition ( re rejoindre après un kick et recommencer ) = ban temp. 14jours&amp;#10;&amp;#10;Vidéo/lien dans le mauvais salon = censure&amp;#10;&amp;#10;Publicité discord = ban temp. 14jours&amp;#10;&amp;#10;Abus de ses droit = dégrade (staff)&amp;#10;&amp;#10;Ban/kick pour des raison personnel = dégrade (staff)&amp;#10;&amp;#10;Non respect du règlement = sanction selon la gravité de la règle enfreinte&amp;#10;```&amp;#10;&amp;#10;**__T.O.S__**&amp;#10;&amp;#10;**Le [T.O.S](https://discord.com/terms) discord doit être obligatoiremment respecté**&amp;#10;&amp;#10;**__Autres__**&amp;#10;&amp;#10;**Notre serveur anime : [Everest Anime Chill [FR]](https://discord.gg/MFB7uXPRsc) **</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="s4d_reply_then" id="^NxNj)G_~U`+7U9zz;NU">
+                <value name="CONTENT">
+                  <shadow type="text" id="3U;dOQ~HpW!JQ!QHWNV4">
+                    <field name="TEXT">Hey!</field>
+                  </shadow>
+                  <block type="gsa_simple_embed" id="rraqp,Pt_]J62Q`V/CRC">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" color="true" title="true" description="true"></mutation>
+                    <value name="COLOR">
+                      <block type="colour_picker" id=")Xb+xh)y$5=^=-LFu~}7">
+                        <field name="COLOUR">#ff0000</field>
+                      </block>
+                    </value>
+                    <value name="TITLE">
+                      <block type="jg_text_remake_paragraph_quotes" id="P-zG5*PAeKy[Hc/=OJ(h">
+                        <field name="TEXT">&gt; Permission manquante</field>
+                      </block>
+                    </value>
+                    <value name="DESCRIPTION">
+                      <block type="jg_text_remake_paragraph_quotes" id="VZ,``f6O09wnYyB*9Ke1">
+                        <field name="TEXT">&gt; Il vous manque la permission : manage server</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="s4d_wait_seconds" id="hLH1iKEW3btS5*W4wolr">
+                    <value name="TIME">
+                      <block type="math_number" id="4d#BT1k7ysEE+oBl!MPY">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="s4d_reply_delete" id="CK`ifiLyn]7$?5Ezxhq@"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
