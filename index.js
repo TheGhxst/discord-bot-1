@@ -210,7 +210,7 @@
               }]});
             } else {
               (s4dmessage.channel).bulkDelete((purge_msg|1));
-              await delay(Number(2)*1000);
+              await delay(Number(1)*1000);
               s4dmessage.channel.send({embeds: [{
               color: String('#ff0000'),
               title: String('Suppression des messages terminé ! '),
@@ -233,7 +233,7 @@
           s4dmessage.channel.send({embeds: [{
           color: String('#ff0000'),
           title: String('Permission manquante !'),
-          description: String('> 1 minute est écoulé !'),
+          description: String('> il vous manque la permission : **manage server**'),
           }]});
         }
       }
@@ -289,27 +289,27 @@
             > **Commandes :**
     
             > **help : voir les aides à propose du bot et du serveur**
-    
+
             > **ping : voir le ping actuel du bot **
-    
+
             > **setprefix : définir le préfixe du bot Everest **
-    
+
             > **welcomedm : configurer le message de bienvenue en dm**
-    
+
             > **seewelcomedm : regarder l'embed de bienvenue en message privé actuel**
-    
+
             > **embed : faire un embed avec un titre ,une description et une image .**
-    
+
             > **rules : réécrire le règlement**
-    
+
             > **clear : supprimer des messages**
-    
+
             > **sethelpserver : configurer le système d'aide de serveur ( c'est à dire que les aides apparaîtront sur cette embed juste en dessous des commandes et des informations complémentaires )**
-    
+
             > **Information complémentaire **
-    
+
             > **Ce bot discord est développé par <@816100601280331827> ,owner de Everest Anime [FR] et de Everest Anime Chill [FR]!**
-    
+
             `) + String(help_server)),
             }]});
     
@@ -594,7 +594,7 @@
                         s4dmessage.channel.send({embeds: [{
                         color: String('#33ff33'),
                         title: String('> Création de l\'embed en cours...'),
-                        description: String('> **Votre embed est entrain d\'être généré...** '),
+                        description: String('> Votre embed est entrain d\'être généré... '),
                         }]}).then(async (s4dreply) =>{
                            await delay(Number(2)*1000);
                           s4dreply.delete();
@@ -652,7 +652,7 @@
           s4dmessage.channel.send({embeds: [{
           color: String('#ff0000'),
           title: String('> Permission manquante'),
-          description: String('> **Il vous manque la permission : manage server**'),
+          description: String('> Il vous manque la permission : **manage server**'),
           }]}).then(async (s4dreply) =>{
              await delay(Number(3)*1000);
             s4dreply.delete();
@@ -671,93 +671,93 @@
           title: String('Règlement Everest Anime [FR]'),
           description: String(`**__GLOBALE__**
     
-          \`\`\`
-          Article 1・Insulter un membre sur le serveur est interdit
+\`\`\`
+Article 1・Insulter un membre sur le serveur est interdit
+
+Article 2・ Demander d'être à un grade sans faire partie des recrutements est interdit
+
+Article 3・En cas de disputes avec un autre membre ,vous serrez tout les deux sanctionné
+
+Article 4・Les photos de profil explicite sont interdit
+\`\`\`
+
+**__Textuel__**
+
+\`\`\`
+Article 1・Les liens emmenant vers des sites frauduleux sont interdit
+
+Article 2・Les tokens grabs seront automatiquement sanctionné par un ban
+
+Article 3・Les liens sont autorisé que dans le salon nommé #média et nul part ailleurs (sauf pour le salon #vos-arts ) tout en respectant l'article 1 et 2
+
+Article 4・Les doubles comptes sont interdit
+
+Article 5・le partage de script/exploit est interdit au sein de notre serveur
+
+Article 6・L'usurpation d'identité est interdite
+
+Article 7・Les propos raciste ou haineux envers une race sont interdit
+
+Article 8・L'homophobie est interdite
+
+Article 9 ・Les invitations vers d'autres serveur qu'Everest Anime Chill [FR] sont interdit
+
+Article 10・Le spam sera automatiquement sanctionné par un kick et en cas de répétition ,par un ban .
+
+Article 11・Le contenu sexuelle est interdit
+
+Article 12・Tout type de conversation/action illégal est interdit
+\`\`\`
+
+**__Message privé__**
+
+\`\`\`
+Article 1・Des insultes entres des membres de notre serveur en message privé sera sanctionné si celui-ci est report dans
+
+Article 2・Les Pub en message privé sans l'autorisation du destinataire sont interdits
+
+Article 3・Les articles 1,2,4,5 et 8 textuel s'appliquent aussi sur les message privé
+
+Article 4・L'harcèlement est interdit
+
+Article 5・Ne partagez pas d'information fausse ou trompeuse
+\`\`\`
+
+**__Santion__**
+
+\`\`\`
+Commande dans le mauvais salon = Mute 5 minutes
+
+Spam = kick automatique
+
+Spam à répétition ( re rejoindre après un kick et recommencer ) = ban temp. 14jours
+
+Vidéo/lien dans le mauvais salon = censure
+
+Publicité discord = ban temp. 14jours
+
+Abus de ses droit = dégrade (staff only)
+
+Ban/kick pour des raison personnel = dégrade (staff only)
+
+Non respect du règlement = sanction selon la gravité de la règle enfreinte
+\`\`\`
+
+**__T.O.S__**
+
+**Le [T.O.S](https://discord.com/terms) discord doit être obligatoiremment respecté**
     
-          Article 2・ Demander d'être à un grade sans faire partie des recrutements est interdit
+**__Autres__**
     
-          Article 3・En cas de disputes avec un autre membre ,vous serrez tout les deux sanctionné
-    
-          Article 4・Les photos de profil explicite sont interdit
-          \`\`\`
-    
-          **__Textuel__**
-    
-          \`\`\`
-          Article 1・Les liens emmenant vers des sites frauduleux sont interdit
-          ﻿
-          Article 2・Les tokens grabs seront automatiquement sanctionné par un ban
-          ﻿
-          Article 3・Les liens sont autorisé que dans le salon nommé #média et nul part ailleurs (sauf pour le salon #vos-arts ) tout en respectant l'article 1 et 2
-          ﻿
-          Article 4・Les doubles comptes sont interdit
-          ﻿
-          Article 5・le partage de script/exploit est interdit au sein de notre serveur
-          ﻿
-          Article 6・L'usurpation d'identité est interdite
-          ﻿
-          Article 7・Les propos raciste ou haineux envers une race sont interdit
-          ﻿
-          Article 8・L'homophobie est interdite
-          ﻿
-          Article 9 ・Les invitations vers d'autres serveur qu'Everest Anime Chill [FR] sont interdit
-          ﻿
-          Article 10・Le spam sera automatiquement sanctionné par un kick et en cas de répétition ,par un ban .
-          ﻿
-          Article 11・Le contenu sexuelle est interdit
-          ﻿
-          Article 12・Tout type de conversation/action illégal est interdit﻿
-          \`\`\`
-    
-          **__Message privé__**
-    
-          \`\`\`
-          Article 1・Des insultes entres des membres de notre serveur en message privé sera sanctionné si celui-ci est report dans
-          ﻿
-          Article 2・Les Pub en message privé sans l'autorisation du destinataire sont interdits
-    
-          Article 3・Les articles 1,2,4,5 et 8 textuel s'appliquent aussi sur les message privé
-          ﻿
-          Article 4・L'harcèlement est interdit
-          ﻿
-          Article 5・Ne partagez pas d'information fausse ou trompeuse﻿
-          \`\`\`
-    
-          **__Santion__**
-    
-          \`\`\`
-          Commande dans le mauvais salon = Mute 5 minutes
-    
-          Spam = kick automatique
-    
-          Spam à répétition ( re rejoindre après un kick et recommencer ) = ban temp. 14jours
-    
-          Vidéo/lien dans le mauvais salon = censure
-    
-          Publicité discord = ban temp. 14jours
-    
-          Abus de ses droit = dégrade (staff)
-    
-          Ban/kick pour des raison personnel = dégrade (staff)
-    
-          Non respect du règlement = sanction selon la gravité de la règle enfreinte
-          \`\`\`
-    
-          **__T.O.S__**
-    
-          **Le [T.O.S](https://discord.com/terms) discord doit être obligatoiremment respecté**
-    
-          **__Autres__**
-    
-          **Notre serveur anime : [Everest Anime Chill [FR]](https://discord.gg/MFB7uXPRsc) **`),
+**Notre serveur anime : [Everest Anime Chill [FR]](https://discord.gg/MFB7uXPRsc) **`),
           }]});
         } else {
           s4dmessage.channel.send({embeds: [{
           color: String('#ff0000'),
           title: String('> Permission manquante'),
-          description: String('> Il vous manque la permission : manage server'),
+          description: String('> Il vous manque la permission : **manage server**'),
           }]}).then(async (s4dreply) =>{
-             await delay(Number(3)*1000);
+             await delay(Number(2)*1000);
             s4dreply.delete();
     
           });
