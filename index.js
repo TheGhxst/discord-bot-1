@@ -168,14 +168,14 @@
           title: String(welcome_title),
           description: String(welcome_description),
           image: {
-                      url: String('https://www.designyourway.net/blog/wp-content/uploads/2017/03/Anime-Wallpaper-Desktop-Background-29.jpg')
+                      url: String('https://media.discordapp.net/attachments/1035627443106619462/1038759405807751209/Bienvenue_sur_shindo_world_fr__1.png?')
                   },
           }]});
         } else {
           s4dmessage.channel.send({embeds: [{
           color: String('#ff0000'),
           title: String('> Permission manquante'),
-          description: String('> **Il vous manque la permission : manager server**'),
+          description: String('> Il vous manque la permission : **manager server**'),
           }]}).then(async (s4dreply) =>{
              await delay(Number(3)*1000);
             s4dreply.delete();
@@ -241,7 +241,7 @@
     });
     
     s4d.client.on('ready', async () => {
-      s4d.client.user.setPresence({status: "online",activities:[{name:'Le début d\'Everest Anime [FR] !',type:"WATCHING"}]});
+      s4d.client.user.setPresence({status: "online",activities:[{name:'Everest Anime [FR] et Everest Anime Chill [FR]',type:"WATCHING"}]});
     
     });
     
@@ -252,7 +252,7 @@
       title: String(welcome_title),
       description: String(welcome_description),
       image: {
-                  url: String('https://www.designyourway.net/blog/wp-content/uploads/2017/03/Anime-Wallpaper-Desktop-Background-29.jpg')
+                  url: String('https://media.discordapp.net/attachments/1035627443106619462/1038759405807751209/Bienvenue_sur_shindo_world_fr__1.png?')
               },
       }]});
     s4d.joiningMember = null
@@ -324,7 +324,7 @@
           s4dmessage.channel.send({embeds: [{
           color: String('#ff0000'),
           title: String('> Permission manquante'),
-          description: String('> **Il vous manque la permission : manager server**'),
+          description: String('> Il vous manque la permission : **manager server**'),
           }]}).then(async (s4dreply) =>{
              await delay(Number(3)*1000);
             s4dreply.delete();
@@ -514,7 +514,7 @@
               title: String('> Quelle sera la description de l\'embed ?'),
               description: String(`> Choisissez  une description pour votre embed
     
-              > Faîtes \`cancel pour annuler\``),
+              > Faîtes \`cancel\` pour annuler`),
               }]}).then(() => { (s4dmessage.channel).awaitMessages({filter:(m) => m.author.id === (s4dmessage.member).id,  time: (1*60*1000), max: 1 }).then(async (collected) => { s4d.reply = collected.first().content;
                s4d.message = collected.first();
                  embed_description = (s4d.reply);
