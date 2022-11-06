@@ -443,16 +443,7 @@
     
     s4d.client.on('messageCreate', async (s4dmessage) => {
       if ((s4dmessage.content) == String(prefix) + 'help') {
-        s4dmessage.channel.send({content:String('> **Les aides à propos du serveur et du bot apparaitront dans quelques instants...**  ')}).then(async (s4dreply) =>{
-           await delay(Number(2)*1000);
-          s4dreply.delete();
-    
-        });
-        s4dmessage.channel.send({content:String('> **Chargement...**')}).then(async (s4dreply) =>{
-           await delay(Number(2)*1000);
-          s4dreply.delete();
-    
-        });
+        
         s4dmessage.channel.send({embeds: [{
         color: String('#3366ff'),
         title: String('> Aide serveur et Bot '),
